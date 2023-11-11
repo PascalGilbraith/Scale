@@ -302,6 +302,7 @@ script = ExtResource("1_4j60e")
 shape = SubResource("CapsuleShape2D_58cf7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_3dvq5")
 animation = &"idle"
