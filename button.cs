@@ -40,4 +40,9 @@ public partial class button : Area2D
 			}
 		}
 	}
+
+	public void Reset()
+	{
+		IsPushed = false;
+	}
 }

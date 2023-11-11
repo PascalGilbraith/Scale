@@ -51,7 +51,7 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="Button" type="Area2D"]
+[node name="Button" type="Area2D" groups=["buttons"]]
 script = ExtResource("1_alyux")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

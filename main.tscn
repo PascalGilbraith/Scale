@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://7c7mjdtpqpu"]
+[gd_scene load_steps=10 format=3 uid="uid://7c7mjdtpqpu"]
 
+[ext_resource type="Script" path="res://main.cs" id="1_0mgsx"]
 [ext_resource type="Texture2D" uid="uid://bworxg0gr31yq" path="res://Images/Gray.png" id="1_fxiub"]
 [ext_resource type="PackedScene" uid="uid://d1x34jlvqptdi" path="res://player.tscn" id="1_r7sq7"]
 [ext_resource type="Texture2D" uid="uid://bycy28cs5nhhf" path="res://Images/Terrain (16x16).png" id="2_w8yc6"]
@@ -584,7 +585,10 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_k3a16")
 sources/0 = SubResource("TileSetAtlasSource_1wgal")
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" node_paths=PackedStringArray("StartPosition", "Player")]
+script = ExtResource("1_0mgsx")
+StartPosition = NodePath("StartPosition")
+Player = NodePath("Player")
 
 [node name="Background" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -615,3 +619,8 @@ position = Vector2(345, 168)
 
 [node name="Button" parent="." instance=ExtResource("5_2r28v")]
 position = Vector2(43, 168)
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(190, 115)
+
+[connection signal="PlayerDied" from="Player" to="." method="_on_player_player_died"]
