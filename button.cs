@@ -23,8 +23,12 @@ public partial class button : Area2D
 		// TODO: Animate the button.
 		if (!IsPushed)
 		{
-			IsPushed = true;
-			EmitSignal(SignalName.ButtonPushed);
+			// I'm only interested in collisions with the character (and maybe boxes in the future)
+			if (body is player)
+			{
+				IsPushed = true;
+				EmitSignal(SignalName.ButtonPushed);
+			}
 		}
 	}
 }
