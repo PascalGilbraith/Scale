@@ -28,7 +28,7 @@ public partial class player : CharacterBody2D
 		}
 
 		// Handle Jump.
-		if (Input.IsActionJustPressed("ui_accept") && (IsOnFloor() || jumpCount < 2))
+		if (Input.IsActionJustPressed("ui_accept") && (IsOnFloor() || IsOnWall())) // Add || jumpCount < 2 to allow double jump.
 		{
 			velocity.Y = JumpVelocity;
 			jumpCount++;
