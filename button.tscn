@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://phtslvx3t3la"]
+
+[ext_resource type="Script" path="res://button.cs" id="1_alyux"]
+[ext_resource type="Texture2D" uid="uid://cdpw2ggdcks4r" path="res://Images/Button.png" id="1_qkptc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3s1h"]
+size = Vector2(16, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_01nem"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qkptc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Button" type="Area2D"]
+script = ExtResource("1_alyux")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_h3s1h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_01nem")
+animation = &"idle"
+autoplay = "idle"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

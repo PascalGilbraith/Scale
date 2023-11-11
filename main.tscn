@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://7c7mjdtpqpu"]
+[gd_scene load_steps=9 format=3 uid="uid://7c7mjdtpqpu"]
 
 [ext_resource type="Texture2D" uid="uid://bworxg0gr31yq" path="res://Images/Gray.png" id="1_fxiub"]
 [ext_resource type="PackedScene" uid="uid://d1x34jlvqptdi" path="res://player.tscn" id="1_r7sq7"]
 [ext_resource type="Texture2D" uid="uid://bycy28cs5nhhf" path="res://Images/Terrain (16x16).png" id="2_w8yc6"]
 [ext_resource type="PackedScene" uid="uid://c56jtijlpjnui" path="res://spike.tscn" id="4_rkff1"]
+[ext_resource type="PackedScene" uid="uid://phtslvx3t3la" path="res://button.tscn" id="5_2r28v"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k3a16"]
 
@@ -610,3 +611,6 @@ position = Vector2(329, 168)
 
 [node name="Spike3" parent="." instance=ExtResource("4_rkff1")]
 position = Vector2(345, 168)
+
+[node name="Button" parent="." instance=ExtResource("5_2r28v")]
+position = Vector2(43, 168)
