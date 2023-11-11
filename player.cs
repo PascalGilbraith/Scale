@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Diagnostics;
 
 public partial class player : CharacterBody2D
 {
@@ -11,9 +12,22 @@ public partial class player : CharacterBody2D
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
+	[Signal]
+	public delegate void PlayerDiedEventHandler();
+
 	public override void _PhysicsProcess(double delta)
 	{
-		var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		// Check for collisions with spikes.
+		var collisionCount = GetSlideCollisionCount();
+		for (int i = 0; i < collisionCount; i++)
+		{
+			var collision = GetSlideCollision(i);
+			var collider = collision.GetCollider();
+			if (collider is spike)
+			{
+				EmitSignal(SignalName.PlayerDied);
+			}
+		}
 
 		Vector2 velocity = Velocity;
 
@@ -33,6 +47,8 @@ public partial class player : CharacterBody2D
 			velocity.Y = JumpVelocity;
 			jumpCount++;
 		}
+
+		var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
@@ -117,5 +133,11 @@ public partial class player : CharacterBody2D
 
 		Velocity = velocity;
 		MoveAndSlide();
+	}
+
+	private void _on_visible_on_screen_notifier_2d_screen_exited()
+	{
+		// We shouldn't be able to exit the screen, but just in case...
+		EmitSignal(SignalName.PlayerDied);
 	}
 }
