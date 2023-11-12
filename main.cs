@@ -29,48 +29,120 @@ public partial class main : Node
 	{
 		var CAudioPlayer = GetNode<AudioStreamPlayer>("CAudioPlayer");
 		CAudioPlayer.Play();
+
+		if (buttonIndex == 0)
+		{
+			buttonIndex++;
+		}
+		else
+		{
+			Reset();
+		}
 	}
 
 	private void _on_button_d_button_pushed()
 	{
 		var DAudioPlayer = GetNode<AudioStreamPlayer>("DAudioPlayer");
 		DAudioPlayer.Play();
+
+		if (buttonIndex == 1)
+		{
+			buttonIndex++;
+		}
+		else
+		{
+			Reset();
+		}
 	}
 
 	private void _on_button_e_button_pushed()
 	{
 		var EAudioPlayer = GetNode<AudioStreamPlayer>("EAudioPlayer");
 		EAudioPlayer.Play();
+
+		if (buttonIndex == 2)
+		{
+			buttonIndex++;
+		}
+		else
+		{
+			Reset();
+		}
 	}
 
 	private void _on_button_f_button_pushed()
 	{
 		var FAudioPlayer = GetNode<AudioStreamPlayer>("FAudioPlayer");
 		FAudioPlayer.Play();
+
+		if (buttonIndex == 3)
+		{
+			buttonIndex++;
+		}
+		else
+		{
+			Reset();
+		}
 	}
 
 	private void _on_button_g_button_pushed()
 	{
 		var GAudioPlayer = GetNode<AudioStreamPlayer>("GAudioPlayer");
 		GAudioPlayer.Play();
+
+		if (buttonIndex == 4)
+		{
+			buttonIndex++;
+		}
+		else
+		{
+			Reset();
+		}
 	}
 
 	private void _on_button_a_button_pushed()
 	{
 		var AAudioPlayer = GetNode<AudioStreamPlayer>("AAudioPlayer");
 		AAudioPlayer.Play();
+
+		if (buttonIndex == 5)
+		{
+			buttonIndex++;
+		}
+		else
+		{
+			Reset();
+		}
 	}
 
 	private void _on_button_b_button_pushed()
 	{
 		var BAudioPlayer = GetNode<AudioStreamPlayer>("BAudioPlayer");
 		BAudioPlayer.Play();
+
+		if (buttonIndex == 6)
+		{
+			buttonIndex++;
+		}
+		else
+		{
+			Reset();
+		}
 	}
 
 	private void _on_button_c_2_button_pushed()
 	{
 		var C2AudioPlayer = GetNode<AudioStreamPlayer>("C2AudioPlayer");
 		C2AudioPlayer.Play();
+
+		if (buttonIndex == 7)
+		{
+			Win();
+		}
+		else
+		{
+			Reset();
+		}
 	}
 
 	private void _on_player_player_died()
@@ -80,6 +152,7 @@ public partial class main : Node
 
 	private void Reset()
 	{
+		buttonIndex = 0;
 		var failAudioPlayer = GetNode<AudioStreamPlayer>("FailAudioPlayer");
 		failAudioPlayer.Play();
 		Player.Position = StartPosition.Position;
