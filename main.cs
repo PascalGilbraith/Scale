@@ -33,6 +33,42 @@ public partial class main : Node
 		DAudioPlayer.Play();
 	}
 
+	private void _on_button_e_button_pushed()
+	{
+		var EAudioPlayer = GetNode<AudioStreamPlayer>("EAudioPlayer");
+		EAudioPlayer.Play();
+	}
+
+	private void _on_button_f_button_pushed()
+	{
+		var FAudioPlayer = GetNode<AudioStreamPlayer>("FAudioPlayer");
+		FAudioPlayer.Play();
+	}
+
+	private void _on_button_g_button_pushed()
+	{
+		var GAudioPlayer = GetNode<AudioStreamPlayer>("GAudioPlayer");
+		GAudioPlayer.Play();
+	}
+
+	private void _on_button_a_button_pushed()
+	{
+		var AAudioPlayer = GetNode<AudioStreamPlayer>("AAudioPlayer");
+		AAudioPlayer.Play();
+	}
+
+	private void _on_button_b_button_pushed()
+	{
+		var BAudioPlayer = GetNode<AudioStreamPlayer>("BAudioPlayer");
+		BAudioPlayer.Play();
+	}
+
+	private void _on_button_c_2_button_pushed()
+	{
+		var C2AudioPlayer = GetNode<AudioStreamPlayer>("C2AudioPlayer");
+		C2AudioPlayer.Play();
+	}
+
 	private void _on_player_player_died()
 	{
 		Reset();
