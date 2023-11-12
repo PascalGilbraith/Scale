@@ -9,6 +9,8 @@ public partial class main : Node
 	[Export]
 	public player Player { get; set; }
 
+	public int buttonIndex = 0;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -19,6 +21,18 @@ public partial class main : Node
 	{
 	}
 
+	private void _on_button_c_button_pushed()
+	{
+		var CAudioPlayer = GetNode<AudioStreamPlayer>("CAudioPlayer");
+		CAudioPlayer.Play();
+	}
+
+	private void _on_button_d_button_pushed()
+	{
+		var DAudioPlayer = GetNode<AudioStreamPlayer>("DAudioPlayer");
+		DAudioPlayer.Play();
+	}
+
 	private void _on_player_player_died()
 	{
 		Reset();
@@ -26,6 +40,8 @@ public partial class main : Node
 
 	private void Reset()
 	{
+		var failAudioPlayer = GetNode<AudioStreamPlayer>("FailAudioPlayer");
+		failAudioPlayer.Play();
 		Player.Position = StartPosition.Position;
 		GetTree().CallGroup("buttons", button.MethodName.Reset);
 	}

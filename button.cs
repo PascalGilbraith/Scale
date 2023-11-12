@@ -33,11 +33,11 @@ public partial class button : Area2D
 			var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 			animatedSprite2D.Play("press");
 
-			IsPushed = true;
 			if (!IsSingleUse || !IsPushed)
 			{
 			EmitSignal(SignalName.ButtonPushed);
 			}
+			IsPushed = true;
 		}
 	}
 
