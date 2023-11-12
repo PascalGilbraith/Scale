@@ -28,7 +28,7 @@ public partial class main : Node
 
 	private void _on_button_c_button_pushed()
 	{
-		var audioPlayer = GetNode<AudioStreamPlayer>("AudioPlayer1");
+		var audioPlayer = GetNode<AudioStreamPlayer>("Button1/AudioPlayer1");
 		audioPlayer.Play();
 
 		if (buttonIndex == 0)
@@ -47,7 +47,7 @@ public partial class main : Node
 
 	private void _on_button_d_button_pushed()
 	{
-		var audioPlayer = GetNode<AudioStreamPlayer>("AudioPlayer2");
+		var audioPlayer = GetNode<AudioStreamPlayer>("Button2/AudioPlayer2");
 		audioPlayer.Play();
 
 		if (buttonIndex == 1)
@@ -66,7 +66,7 @@ public partial class main : Node
 
 	private void _on_button_e_button_pushed()
 	{
-		var audioPlayer = GetNode<AudioStreamPlayer>("AudioPlayer3");
+		var audioPlayer = GetNode<AudioStreamPlayer>("Button3/AudioPlayer3");
 		audioPlayer.Play();
 
 		if (buttonIndex == 2)
@@ -85,7 +85,7 @@ public partial class main : Node
 
 	private void _on_button_f_button_pushed()
 	{
-		var audioPlayer = GetNode<AudioStreamPlayer>("AudioPlayer4");
+		var audioPlayer = GetNode<AudioStreamPlayer>("Button4/AudioPlayer4");
 		audioPlayer.Play();
 
 		if (buttonIndex == 3)
@@ -104,7 +104,7 @@ public partial class main : Node
 
 	private void _on_button_g_button_pushed()
 	{
-		var audioPlayer = GetNode<AudioStreamPlayer>("AudioPlayer5");
+		var audioPlayer = GetNode<AudioStreamPlayer>("Button5/AudioPlayer5");
 		audioPlayer.Play();
 
 		if (buttonIndex == 4)
@@ -123,7 +123,7 @@ public partial class main : Node
 
 	private void _on_button_a_button_pushed()
 	{
-		var audioPlayer = GetNode<AudioStreamPlayer>("AudioPlayer6");
+		var audioPlayer = GetNode<AudioStreamPlayer>("Button6/AudioPlayer6");
 		audioPlayer.Play();
 
 		if (buttonIndex == 5)
@@ -142,7 +142,7 @@ public partial class main : Node
 
 	private void _on_button_b_button_pushed()
 	{
-		var audioPlayer = GetNode<AudioStreamPlayer>("AudioPlayer7");
+		var audioPlayer = GetNode<AudioStreamPlayer>("Button7/AudioPlayer7");
 		audioPlayer.Play();
 
 		if (buttonIndex == 6)
@@ -161,7 +161,7 @@ public partial class main : Node
 
 	private void _on_button_c_2_button_pushed()
 	{
-		var audioPlayer = GetNode<AudioStreamPlayer>("AudioPlayer8");
+		var audioPlayer = GetNode<AudioStreamPlayer>("Button8/AudioPlayer8");
 		audioPlayer.Play();
 
 		if (buttonIndex == 7)
