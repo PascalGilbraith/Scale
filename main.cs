@@ -9,6 +9,9 @@ public partial class main : Node
 	[Export]
 	public player Player { get; set; }
 
+	[Export]
+	public Camera2D Viewport { get; set; }
+
 	public int buttonIndex = 0;
 
 	// Called when the node enters the scene tree for the first time.
@@ -19,6 +22,7 @@ public partial class main : Node
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		Viewport.Position = Player.Position;
 	}
 
 	private void _on_button_c_button_pushed()
@@ -80,5 +84,14 @@ public partial class main : Node
 		failAudioPlayer.Play();
 		Player.Position = StartPosition.Position;
 		GetTree().CallGroup("buttons", button.MethodName.Reset);
+	}
+	
+	private void Win()
+	{
+		// Zoom view into player
+		
+		// Play win sound (descending part of scale)
+
+		// Move to next level
 	}
 }
