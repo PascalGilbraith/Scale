@@ -631,29 +631,53 @@ position = Vector2(329, 168)
 [node name="Spike3" parent="." instance=ExtResource("4_rkff1")]
 position = Vector2(345, 168)
 
-[node name="ButtonC" parent="." instance=ExtResource("5_2r28v")]
+[node name="Button1" parent="." instance=ExtResource("5_2r28v")]
 position = Vector2(43, 168)
 
-[node name="ButtonD" parent="." instance=ExtResource("5_2r28v")]
+[node name="AudioPlayer1" type="AudioStreamPlayer" parent="Button1"]
+stream = ExtResource("8_pvgkb")
+
+[node name="Button2" parent="." instance=ExtResource("5_2r28v")]
 position = Vector2(278, 408)
 
-[node name="ButtonE" parent="." instance=ExtResource("5_2r28v")]
+[node name="AudioPlayer2" type="AudioStreamPlayer" parent="Button2"]
+stream = ExtResource("9_ep3gf")
+
+[node name="Button3" parent="." instance=ExtResource("5_2r28v")]
 position = Vector2(245, 408)
 
-[node name="ButtonF" parent="." instance=ExtResource("5_2r28v")]
+[node name="AudioPlayer3" type="AudioStreamPlayer" parent="Button3"]
+stream = ExtResource("10_ar3no")
+
+[node name="Button4" parent="." instance=ExtResource("5_2r28v")]
 position = Vector2(211, 408)
 
-[node name="ButtonG" parent="." instance=ExtResource("5_2r28v")]
+[node name="AudioPlayer4" type="AudioStreamPlayer" parent="Button4"]
+stream = ExtResource("11_lfdua")
+
+[node name="Button5" parent="." instance=ExtResource("5_2r28v")]
 position = Vector2(177, 408)
 
-[node name="ButtonA" parent="." instance=ExtResource("5_2r28v")]
+[node name="AudioPlayer5" type="AudioStreamPlayer" parent="Button5"]
+stream = ExtResource("12_prrdy")
+
+[node name="Button6" parent="." instance=ExtResource("5_2r28v")]
 position = Vector2(145, 408)
 
-[node name="ButtonB" parent="." instance=ExtResource("5_2r28v")]
+[node name="AudioPlayer6" type="AudioStreamPlayer" parent="Button6"]
+stream = ExtResource("13_kgmk5")
+
+[node name="Button7" parent="." instance=ExtResource("5_2r28v")]
 position = Vector2(111, 408)
 
-[node name="ButtonC2" parent="." instance=ExtResource("5_2r28v")]
+[node name="AudioPlayer7" type="AudioStreamPlayer" parent="Button7"]
+stream = ExtResource("14_faefg")
+
+[node name="Button8" parent="." instance=ExtResource("5_2r28v")]
 position = Vector2(79, 408)
+
+[node name="AudioPlayer8" type="AudioStreamPlayer" parent="Button8"]
+stream = ExtResource("15_rpayj")
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(190, 115)
@@ -661,41 +685,17 @@ position = Vector2(190, 115)
 [node name="FailAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_de70w")
 
-[node name="CAudioPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_pvgkb")
-
-[node name="DAudioPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_ep3gf")
-
-[node name="EAudioPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_ar3no")
-
-[node name="FAudioPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_lfdua")
-
-[node name="GAudioPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_prrdy")
-
-[node name="AAudioPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_kgmk5")
-
-[node name="BAudioPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_faefg")
-
-[node name="C2AudioPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_rpayj")
-
 [node name="Viewport" type="Camera2D" parent="."]
 position = Vector2(177, 96)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [connection signal="PlayerDied" from="Player" to="." method="_on_player_player_died"]
-[connection signal="ButtonPushed" from="ButtonC" to="." method="_on_button_c_button_pushed"]
-[connection signal="ButtonPushed" from="ButtonD" to="." method="_on_button_d_button_pushed"]
-[connection signal="ButtonPushed" from="ButtonE" to="." method="_on_button_e_button_pushed"]
-[connection signal="ButtonPushed" from="ButtonF" to="." method="_on_button_f_button_pushed"]
-[connection signal="ButtonPushed" from="ButtonG" to="." method="_on_button_g_button_pushed"]
-[connection signal="ButtonPushed" from="ButtonA" to="." method="_on_button_a_button_pushed"]
-[connection signal="ButtonPushed" from="ButtonB" to="." method="_on_button_b_button_pushed"]
-[connection signal="ButtonPushed" from="ButtonC2" to="." method="_on_button_c_2_button_pushed"]
+[connection signal="ButtonPushed" from="Button1" to="." method="_on_button_c_button_pushed"]
+[connection signal="ButtonPushed" from="Button2" to="." method="_on_button_d_button_pushed"]
+[connection signal="ButtonPushed" from="Button3" to="." method="_on_button_e_button_pushed"]
+[connection signal="ButtonPushed" from="Button4" to="." method="_on_button_f_button_pushed"]
+[connection signal="ButtonPushed" from="Button5" to="." method="_on_button_g_button_pushed"]
+[connection signal="ButtonPushed" from="Button6" to="." method="_on_button_a_button_pushed"]
+[connection signal="ButtonPushed" from="Button7" to="." method="_on_button_b_button_pushed"]
+[connection signal="ButtonPushed" from="Button8" to="." method="_on_button_c_2_button_pushed"]

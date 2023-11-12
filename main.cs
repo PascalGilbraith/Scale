@@ -17,6 +17,7 @@ public partial class main : Node
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		Reset();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,113 +28,141 @@ public partial class main : Node
 
 	private void _on_button_c_button_pushed()
 	{
-		var CAudioPlayer = GetNode<AudioStreamPlayer>("CAudioPlayer");
-		CAudioPlayer.Play();
+		var audioPlayer = GetNode<AudioStreamPlayer>("AudioPlayer1");
+		audioPlayer.Play();
 
 		if (buttonIndex == 0)
 		{
 			buttonIndex++;
+			var thisButton = GetNode<button>("Button1");
+			thisButton.IsHighlighted = false;
+			var nextButton = GetNode<button>("Button2");
+			nextButton.IsHighlighted = true;
 		}
 		else
 		{
-			Reset();
+			Fail();
 		}
 	}
 
 	private void _on_button_d_button_pushed()
 	{
-		var DAudioPlayer = GetNode<AudioStreamPlayer>("DAudioPlayer");
-		DAudioPlayer.Play();
+		var audioPlayer = GetNode<AudioStreamPlayer>("AudioPlayer2");
+		audioPlayer.Play();
 
 		if (buttonIndex == 1)
 		{
 			buttonIndex++;
+			var thisButton = GetNode<button>("Button2");
+			thisButton.IsHighlighted = false;
+			var nextButton = GetNode<button>("Button3");
+			nextButton.IsHighlighted = true;
 		}
 		else
 		{
-			Reset();
+			Fail();
 		}
 	}
 
 	private void _on_button_e_button_pushed()
 	{
-		var EAudioPlayer = GetNode<AudioStreamPlayer>("EAudioPlayer");
-		EAudioPlayer.Play();
+		var audioPlayer = GetNode<AudioStreamPlayer>("AudioPlayer3");
+		audioPlayer.Play();
 
 		if (buttonIndex == 2)
 		{
 			buttonIndex++;
+			var thisButton = GetNode<button>("Button3");
+			thisButton.IsHighlighted = false;
+			var nextButton = GetNode<button>("Button4");
+			nextButton.IsHighlighted = true;
 		}
 		else
 		{
-			Reset();
+			Fail();
 		}
 	}
 
 	private void _on_button_f_button_pushed()
 	{
-		var FAudioPlayer = GetNode<AudioStreamPlayer>("FAudioPlayer");
-		FAudioPlayer.Play();
+		var audioPlayer = GetNode<AudioStreamPlayer>("AudioPlayer4");
+		audioPlayer.Play();
 
 		if (buttonIndex == 3)
 		{
 			buttonIndex++;
+			var thisButton = GetNode<button>("Button4");
+			thisButton.IsHighlighted = false;
+			var nextButton = GetNode<button>("Button5");
+			nextButton.IsHighlighted = true;
 		}
 		else
 		{
-			Reset();
+			Fail();
 		}
 	}
 
 	private void _on_button_g_button_pushed()
 	{
-		var GAudioPlayer = GetNode<AudioStreamPlayer>("GAudioPlayer");
-		GAudioPlayer.Play();
+		var audioPlayer = GetNode<AudioStreamPlayer>("AudioPlayer5");
+		audioPlayer.Play();
 
 		if (buttonIndex == 4)
 		{
 			buttonIndex++;
+			var thisButton = GetNode<button>("Button5");
+			thisButton.IsHighlighted = false;
+			var nextButton = GetNode<button>("Button6");
+			nextButton.IsHighlighted = true;
 		}
 		else
 		{
-			Reset();
+			Fail();
 		}
 	}
 
 	private void _on_button_a_button_pushed()
 	{
-		var AAudioPlayer = GetNode<AudioStreamPlayer>("AAudioPlayer");
-		AAudioPlayer.Play();
+		var audioPlayer = GetNode<AudioStreamPlayer>("AudioPlayer6");
+		audioPlayer.Play();
 
 		if (buttonIndex == 5)
 		{
 			buttonIndex++;
+			var thisButton = GetNode<button>("Button6");
+			thisButton.IsHighlighted = false;
+			var nextButton = GetNode<button>("Button7");
+			nextButton.IsHighlighted = true;
 		}
 		else
 		{
-			Reset();
+			Fail();
 		}
 	}
 
 	private void _on_button_b_button_pushed()
 	{
-		var BAudioPlayer = GetNode<AudioStreamPlayer>("BAudioPlayer");
-		BAudioPlayer.Play();
+		var audioPlayer = GetNode<AudioStreamPlayer>("AudioPlayer7");
+		audioPlayer.Play();
 
 		if (buttonIndex == 6)
 		{
 			buttonIndex++;
+			var thisButton = GetNode<button>("Button7");
+			thisButton.IsHighlighted = false;
+			var nextButton = GetNode<button>("Button8");
+			nextButton.IsHighlighted = true;
 		}
 		else
 		{
-			Reset();
+			Fail();
 		}
 	}
 
 	private void _on_button_c_2_button_pushed()
 	{
-		var C2AudioPlayer = GetNode<AudioStreamPlayer>("C2AudioPlayer");
-		C2AudioPlayer.Play();
+		var audioPlayer = GetNode<AudioStreamPlayer>("AudioPlayer8");
+		audioPlayer.Play();
 
 		if (buttonIndex == 7)
 		{
@@ -141,22 +170,22 @@ public partial class main : Node
 		}
 		else
 		{
-			Reset();
+			Fail();
 		}
 	}
 
 	private void _on_player_player_died()
 	{
-		Reset();
+		Fail();
 	}
 
 	private void Reset()
 	{
 		buttonIndex = 0;
-		var failAudioPlayer = GetNode<AudioStreamPlayer>("FailAudioPlayer");
-		failAudioPlayer.Play();
 		Player.Position = StartPosition.Position;
 		GetTree().CallGroup("buttons", button.MethodName.Reset);
+		var button1 = GetNode<button>("Button1");
+		button1.IsHighlighted = true;
 	}
 	
 	private void Win()
@@ -166,5 +195,13 @@ public partial class main : Node
 		// Play win sound (descending part of scale)
 
 		// Move to next level
+	}
+
+	private void Fail()
+	{
+		var failAudioPlayer = GetNode<AudioStreamPlayer>("FailAudioPlayer");
+		failAudioPlayer.Play();
+
+		Reset();
 	}
 }

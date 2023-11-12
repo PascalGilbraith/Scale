@@ -7,7 +7,18 @@ public partial class button : Area2D
 	public delegate void ButtonPushedEventHandler();
 
 	public bool IsPushed { get; private set; } = false;
-	public bool IsSingleUse { get; set; } = true;
+	public bool IsSingleUse { get; set; } = false;
+
+	private bool isHighlighted;
+	public bool IsHighlighted {
+		get => isHighlighted;
+		set
+		{
+			isHighlighted = value;
+			var highlight = GetNode<PointLight2D>("Light");
+			highlight.Enabled = isHighlighted;
+		}
+	}
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -35,7 +46,7 @@ public partial class button : Area2D
 
 			if (!IsSingleUse || !IsPushed)
 			{
-			EmitSignal(SignalName.ButtonPushed);
+				EmitSignal(SignalName.ButtonPushed);
 			}
 			IsPushed = true;
 		}
@@ -44,5 +55,6 @@ public partial class button : Area2D
 	public void Reset()
 	{
 		IsPushed = false;
+		IsHighlighted = false;
 	}
 }
