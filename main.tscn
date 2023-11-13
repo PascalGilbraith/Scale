@@ -599,6 +599,7 @@ script = ExtResource("1_0mgsx")
 StartPosition = NodePath("StartPosition")
 Player = NodePath("Player")
 Viewport = NodePath("Viewport")
+NextLevel = null
 
 [node name="Background" type="TextureRect" parent="."]
 anchors_preset = 15

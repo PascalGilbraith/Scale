@@ -3,6 +3,9 @@ using System;
 
 public partial class main_menu : CanvasLayer
 {
+	[Export]
+	public PackedScene FirstLevel { get; set; }
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -22,6 +25,11 @@ public partial class main_menu : CanvasLayer
 	private void _on_button_play_pressed()
 	{
 		// Load first level scene
-		GetTree().ChangeSceneToFile("res://main.tscn");
+		GetTree().ChangeSceneToPacked(FirstLevel);
+	}
+
+	private void _on_button_resume_pressed()
+	{
+
 	}
 }

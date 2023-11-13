@@ -12,6 +12,9 @@ public partial class main : Node
 	[Export]
 	public Camera2D Viewport { get; set; }
 
+	[Export]
+	public PackedScene NextLevel { get; set; }
+
 	public int buttonIndex = 0;
 
 	// Called when the node enters the scene tree for the first time.
@@ -24,6 +27,13 @@ public partial class main : Node
 	public override void _Process(double delta)
 	{
 		Viewport.Position = Player.Position;
+
+		// If escape or pause pressed open the main menu
+		if (Input.IsActionJustPressed("ui_cancel") || Input.IsActionJustPressed("pause"))
+		{
+			// Open the main menu
+			GetTree().ChangeSceneToFile("res://main_menu.tscn");
+		}
 	}
 
 	private void _on_button_c_button_pushed()
@@ -195,6 +205,7 @@ public partial class main : Node
 		// Play win sound (descending part of scale)
 
 		// Move to next level
+		GetTree().ChangeSceneToPacked(NextLevel);
 	}
 
 	private void Fail()
