@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://4kf5da6q0njq"]
+
+[ext_resource type="Script" path="res://main_menu.cs" id="1_u5tav"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_u5tav")
+
+[node name="Button_Play" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -15.5
+offset_right = 20.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+
+[node name="Button_Quit" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.471
+anchor_top = 0.556
+anchor_right = 0.529
+anchor_bottom = 0.599
+offset_left = -0.120026
+offset_top = 0.179962
+offset_right = 0.119965
+offset_bottom = 0.219971
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[connection signal="pressed" from="Button_Play" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="Button_Quit" to="." method="_on_button_quit_pressed"]
