@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class main_menu : CanvasLayer
+public partial class game_menu : CanvasLayer
 {
 	[Export]
 	public PackedScene FirstLevel { get; set; }
@@ -15,16 +15,23 @@ public partial class main_menu : CanvasLayer
 	public override void _Process(double delta)
 	{
 	}
-	
+
+	private void _on_button_play_pressed()
+	{
+		// Load first level scene
+		GetTree().ChangeSceneToPacked(FirstLevel);
+	}
+
 	private void _on_button_quit_pressed()
 	{
 		// Quit the game
 		GetTree().Quit();
 	}
 
-	private void _on_button_play_pressed()
+	private void _on_button_resume_pressed()
 	{
-		// Load first level scene
-		GetTree().ChangeSceneToPacked(FirstLevel);
+		// Resume current game
+		Hide();
+		GetTree().Paused = false;
 	}
 }

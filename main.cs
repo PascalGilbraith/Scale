@@ -20,6 +20,10 @@ public partial class main : Node
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		// Hide the game menu
+		var gameMenu = GetNode<game_menu>("Viewport/GameMenu");
+		gameMenu.Hide();
+		
 		Reset();
 	}
 
@@ -31,8 +35,12 @@ public partial class main : Node
 		// If escape or pause pressed open the main menu
 		if (Input.IsActionJustPressed("ui_cancel") || Input.IsActionJustPressed("pause"))
 		{
-			// Open the main menu
-			GetTree().ChangeSceneToFile("res://main_menu.tscn");
+			// Pause game
+			GetTree().Paused = true;
+
+			// Enable the game menu
+			var gameMenu = GetNode<game_menu>("Viewport/GameMenu");
+			gameMenu.Show();
 		}
 	}
 

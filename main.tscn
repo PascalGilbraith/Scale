@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://7c7mjdtpqpu"]
+[gd_scene load_steps=20 format=3 uid="uid://7c7mjdtpqpu"]
 
 [ext_resource type="Script" path="res://main.cs" id="1_0mgsx"]
 [ext_resource type="Texture2D" uid="uid://bworxg0gr31yq" path="res://Images/Gray.png" id="1_fxiub"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://d36j8l0qofpau" path="res://Sound/A5.wav" id="13_kgmk5"]
 [ext_resource type="AudioStream" uid="uid://cnfrxvrx084x8" path="res://Sound/B5.wav" id="14_faefg"]
 [ext_resource type="AudioStream" uid="uid://bdls3h4ngt6fn" path="res://Sound/C6.wav" id="15_rpayj"]
+[ext_resource type="PackedScene" uid="uid://dq0u68rybgoll" path="res://game_menu.tscn" id="16_vysmy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k3a16"]
 
@@ -599,7 +600,6 @@ script = ExtResource("1_0mgsx")
 StartPosition = NodePath("StartPosition")
 Player = NodePath("Player")
 Viewport = NodePath("Viewport")
-NextLevel = null
 
 [node name="Background" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -690,6 +690,8 @@ stream = ExtResource("7_de70w")
 position = Vector2(177, 96)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
+
+[node name="GameMenu" parent="Viewport" instance=ExtResource("16_vysmy")]
 
 [connection signal="PlayerDied" from="Player" to="." method="_on_player_player_died"]
 [connection signal="ButtonPushed" from="Button1" to="." method="_on_button_c_button_pushed"]
