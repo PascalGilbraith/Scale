@@ -1,12 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dq0u68rybgoll"]
+[gd_scene load_steps=2 format=3 uid="uid://dq0u68rybgoll"]
 
 [ext_resource type="Script" path="res://game_menu.cs" id="1_x5lcl"]
-[ext_resource type="PackedScene" uid="uid://7c7mjdtpqpu" path="res://main.tscn" id="2_dcloa"]
 
 [node name="GameMenu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_x5lcl")
-FirstLevel = ExtResource("2_dcloa")
 
 [node name="Button_Play" type="Button" parent="."]
 anchors_preset = 8

@@ -3,9 +3,6 @@ using System;
 
 public partial class game_menu : CanvasLayer
 {
-	[Export]
-	public PackedScene FirstLevel { get; set; }
-
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -19,7 +16,7 @@ public partial class game_menu : CanvasLayer
 	private void _on_button_play_pressed()
 	{
 		// Load first level scene
-		GetTree().ChangeSceneToPacked(FirstLevel);
+		//GetTree().ChangeSceneToPacked(FirstLevel);
 	}
 
 	private void _on_button_quit_pressed()
