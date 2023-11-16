@@ -8,6 +8,10 @@ public partial class player : CharacterBody2D
 	public const float JumpVelocity = -400.0f;
 
 	private int jumpCount = 0;
+	private bool isWallJumping = false;
+	
+	[Export]
+	public Timer TimerWallJump { get; set; }
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
@@ -39,21 +43,36 @@ public partial class player : CharacterBody2D
 		else
 		{
 			jumpCount = 0;
+			isWallJumping = false;
 		}
+
+		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
 
 		// Handle Jump.
 		if (Input.IsActionJustPressed("ui_accept") && (IsOnFloor() || IsOnWall())) // Add || jumpCount < 2 to allow double jump.
 		{
 			velocity.Y = JumpVelocity;
 			jumpCount++;
+
+			if (IsOnWall() && !IsOnFloor())
+			{
+				isWallJumping = IsOnWall();
+				TimerWallJump.Start();
+				velocity.X = -direction.X * (Speed / 2);
+			}
 		}
 
 		var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
-		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-		if (direction != Vector2.Zero)
+		
+		if (isWallJumping)
+		{
+			animatedSprite2D.FlipH = direction.X < 0;
+			animatedSprite2D.Play("wall_jump");
+		}
+		else if (direction != Vector2.Zero)
 		{
 			animatedSprite2D.FlipH = direction.X < 0;
 			if (IsOnFloor())
@@ -139,5 +158,10 @@ public partial class player : CharacterBody2D
 	{
 		// We shouldn't be able to exit the screen, but just in case...
 		EmitSignal(SignalName.PlayerDied);
+	}
+
+	private void _on_timer_wall_jump_timeout()
+	{
+		isWallJumping = false;
 	}
 }

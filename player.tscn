@@ -295,8 +295,9 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("TimerWallJump")]
 script = ExtResource("1_4j60e")
+TimerWallJump = NodePath("TimerWallJump")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_58cf7")
@@ -310,4 +311,9 @@ autoplay = "idle"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
+[node name="TimerWallJump" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="TimerWallJump" to="." method="_on_timer_wall_jump_timeout"]
