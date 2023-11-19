@@ -15,8 +15,22 @@ public partial class game_menu : CanvasLayer
 
 	private void _on_button_play_pressed()
 	{
-		// Load first level scene
-		//GetTree().ChangeSceneToPacked(FirstLevel);
+		// Get current scene file name
+		var scene_file = GetTree().CurrentScene.SceneFilePath;
+		if (scene_file.EndsWith("main.tscn"))
+		{
+			// Reload current scene
+			GetTree().ReloadCurrentScene();
+			Hide();
+			GetTree().Paused = false;
+		}
+		else
+		{
+			// Load first level scene
+			GetTree().ChangeSceneToFile("res://main.tscn");
+			Hide();
+			GetTree().Paused = false;
+		}
 	}
 
 	private void _on_button_quit_pressed()
