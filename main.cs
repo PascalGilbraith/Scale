@@ -13,6 +13,9 @@ public partial class main : Node
 	public Camera2D Viewport { get; set; }
 
 	[Export]
+	public game_menu GameMenu { get; set; }
+
+	[Export]
 	public PackedScene NextLevel { get; set; }
 
 	[Export]
@@ -45,8 +48,7 @@ public partial class main : Node
 	public override void _Ready()
 	{
 		// Hide the game menu
-		var gameMenu = GetNode<game_menu>("Viewport/GameMenu");
-		gameMenu.Hide();
+		GameMenu.Hide();
 		
 		Reset();
 	}
@@ -63,8 +65,7 @@ public partial class main : Node
 			GetTree().Paused = true;
 
 			// Enable the game menu
-			var gameMenu = GetNode<game_menu>("Viewport/GameMenu");
-			gameMenu.Show();
+			GameMenu.Show();
 		}
 	}
 

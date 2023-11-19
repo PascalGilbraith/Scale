@@ -52,9 +52,10 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="Button" type="Area2D" node_paths=PackedStringArray("AudioPlayer") groups=["buttons"]]
+[node name="Button" type="Area2D" node_paths=PackedStringArray("AudioPlayer", "Sprite") groups=["buttons"]]
 script = ExtResource("1_alyux")
 AudioPlayer = NodePath("AudioPlayer")
+Sprite = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5.5)

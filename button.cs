@@ -12,6 +12,9 @@ public partial class button : Area2D
 	[Export]
 	public AudioStreamPlayer2D AudioPlayer { get; set; }
 
+	[Export]
+	public AnimatedSprite2D Sprite { get; set; }
+
 	public bool IsPushed { get; private set; } = false;
 	public bool IsSingleUse { get; set; } = false;
 
@@ -37,10 +40,9 @@ public partial class button : Area2D
 	public override void _Process(double delta)
 	{
 		// Since we don't loop the animation we need to return to idle once it's done
-		var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-		if (animatedSprite2D.Animation == "press" && animatedSprite2D.FrameProgress == 1)
+		if (Sprite.Animation == "press" && Sprite.FrameProgress == 1)
 		{
-			animatedSprite2D.Play("idle");
+			Sprite.Play("idle");
 		}
 	}
 
@@ -49,8 +51,7 @@ public partial class button : Area2D
 		// I'm only interested in collisions with the character (and maybe boxes in the future)
 		if (body is player)
 		{
-			var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-			animatedSprite2D.Play("press");
+			Sprite.Play("press");
 
 			if (!IsSingleUse || !IsPushed)
 			{
