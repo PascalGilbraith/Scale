@@ -4,9 +4,6 @@ using System;
 public partial class main : Node
 {
 	[Export]
-	public Marker2D StartPosition { get; set; }
-	
-	[Export]
 	public player Player { get; set; }
 
 	[Export]
@@ -22,28 +19,7 @@ public partial class main : Node
 	public PackedScene NextLevel { get; set; }
 
 	[Export]
-	public button button1 { get; set; }
-
-	[Export]
-	public button button2 { get; set; }
-
-	[Export]
-	public button button3 { get; set; }
-
-	[Export]
-	public button button4 { get; set; }
-
-	[Export]
-	public button button5 { get; set; }
-
-	[Export]
-	public button button6 { get; set; }
-
-	[Export]
-	public button button7 { get; set; }
-
-	[Export]
-	public button button8 { get; set; }
+	public Level CurrentLevel { get; set; }
 
 	public int buttonIndex = 0;
 
@@ -74,13 +50,13 @@ public partial class main : Node
 
 	private void _on_button_c_button_pushed()
 	{
-		button1.PlaySound();
+		CurrentLevel.Button1.PlaySound();
 
 		if (buttonIndex == 0)
 		{
 			buttonIndex++;
-			button1.IsHighlighted = false;
-			button2.IsHighlighted = true;
+			CurrentLevel.Button1.IsHighlighted = false;
+			CurrentLevel.Button2.IsHighlighted = true;
 		}
 		else
 		{
@@ -90,13 +66,13 @@ public partial class main : Node
 
 	private void _on_button_d_button_pushed()
 	{
-		button2.PlaySound();
+		CurrentLevel.Button2.PlaySound();
 
 		if (buttonIndex == 1)
 		{
 			buttonIndex++;
-			button2.IsHighlighted = false;
-			button3.IsHighlighted = true;
+			CurrentLevel.Button2.IsHighlighted = false;
+			CurrentLevel.Button3.IsHighlighted = true;
 		}
 		else
 		{
@@ -106,13 +82,13 @@ public partial class main : Node
 
 	private void _on_button_e_button_pushed()
 	{
-		button3.PlaySound();
+		CurrentLevel.Button3.PlaySound();
 
 		if (buttonIndex == 2)
 		{
 			buttonIndex++;
-			button3.IsHighlighted = false;
-			button4.IsHighlighted = true;
+			CurrentLevel.Button3.IsHighlighted = false;
+			CurrentLevel.Button4.IsHighlighted = true;
 		}
 		else
 		{
@@ -122,13 +98,13 @@ public partial class main : Node
 
 	private void _on_button_f_button_pushed()
 	{
-		button4.PlaySound();
+		CurrentLevel.Button4.PlaySound();
 
 		if (buttonIndex == 3)
 		{
 			buttonIndex++;
-			button4.IsHighlighted = false;
-			button5.IsHighlighted = true;
+			CurrentLevel.Button4.IsHighlighted = false;
+			CurrentLevel.Button5.IsHighlighted = true;
 		}
 		else
 		{
@@ -138,13 +114,13 @@ public partial class main : Node
 
 	private void _on_button_g_button_pushed()
 	{
-		button5.PlaySound();
+		CurrentLevel.Button5.PlaySound();
 
 		if (buttonIndex == 4)
 		{
 			buttonIndex++;
-			button5.IsHighlighted = false;
-			button6.IsHighlighted = true;
+			CurrentLevel.Button5.IsHighlighted = false;
+			CurrentLevel.Button6.IsHighlighted = true;
 		}
 		else
 		{
@@ -154,13 +130,13 @@ public partial class main : Node
 
 	private void _on_button_a_button_pushed()
 	{
-		button6.PlaySound();
+		CurrentLevel.Button6.PlaySound();
 
 		if (buttonIndex == 5)
 		{
 			buttonIndex++;
-			button6.IsHighlighted = false;
-			button7.IsHighlighted = true;
+			CurrentLevel.Button6.IsHighlighted = false;
+			CurrentLevel.Button7.IsHighlighted = true;
 		}
 		else
 		{
@@ -170,13 +146,13 @@ public partial class main : Node
 
 	private void _on_button_b_button_pushed()
 	{
-		button7.PlaySound();
+		CurrentLevel.Button7.PlaySound();
 
 		if (buttonIndex == 6)
 		{
 			buttonIndex++;
-			button7.IsHighlighted = false;
-			button8.IsHighlighted = true;
+			CurrentLevel.Button7.IsHighlighted = false;
+			CurrentLevel.Button8.IsHighlighted = true;
 		}
 		else
 		{
@@ -186,7 +162,7 @@ public partial class main : Node
 
 	private void _on_button_c_2_button_pushed()
 	{
-		button8.PlaySound();
+		CurrentLevel.Button8.PlaySound();
 
 		if (buttonIndex == 7)
 		{
@@ -206,9 +182,9 @@ public partial class main : Node
 	private void Reset()
 	{
 		buttonIndex = 0;
-		Player.Position = StartPosition.Position;
+		Player.Position = CurrentLevel.StartPosition.Position;
 		GetTree().CallGroup("buttons", button.MethodName.Reset);
-		button1.IsHighlighted = true;
+		CurrentLevel.Button1.IsHighlighted = true;
 	}
 	
 	private void Win()

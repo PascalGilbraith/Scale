@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://7c7mjdtpqpu"]
+[gd_scene load_steps=21 format=3 uid="uid://7c7mjdtpqpu"]
 
 [ext_resource type="Script" path="res://main.cs" id="1_0mgsx"]
 [ext_resource type="Texture2D" uid="uid://bworxg0gr31yq" path="res://Images/Gray.png" id="1_fxiub"]
 [ext_resource type="PackedScene" uid="uid://d1x34jlvqptdi" path="res://player.tscn" id="1_r7sq7"]
+[ext_resource type="Script" path="res://Level.cs" id="2_bjfbf"]
 [ext_resource type="Texture2D" uid="uid://bycy28cs5nhhf" path="res://Images/Terrain (16x16).png" id="2_w8yc6"]
 [ext_resource type="PackedScene" uid="uid://c56jtijlpjnui" path="res://spike.tscn" id="4_rkff1"]
 [ext_resource type="PackedScene" uid="uid://phtslvx3t3la" path="res://button.tscn" id="5_2r28v"]
@@ -14,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://cu3q1vvliluvk" path="res://Sound/G5.wav" id="12_prrdy"]
 [ext_resource type="AudioStream" uid="uid://d36j8l0qofpau" path="res://Sound/A5.wav" id="13_kgmk5"]
 [ext_resource type="AudioStream" uid="uid://cnfrxvrx084x8" path="res://Sound/B5.wav" id="14_faefg"]
+[ext_resource type="AudioStream" uid="uid://bdls3h4ngt6fn" path="res://Sound/C6.wav" id="15_rpayj"]
 [ext_resource type="PackedScene" uid="uid://dq0u68rybgoll" path="res://game_menu.tscn" id="16_vysmy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k3a16"]
@@ -594,23 +596,25 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_k3a16")
 sources/0 = SubResource("TileSetAtlasSource_1wgal")
 
-[node name="Main" type="Node" node_paths=PackedStringArray("StartPosition", "Player", "Viewport", "GameMenu", "FailAudioPlayer", "button1", "button2", "button3", "button4", "button5", "button6", "button7", "button8")]
+[node name="Main" type="Node" node_paths=PackedStringArray("Player", "Viewport", "GameMenu", "FailAudioPlayer", "CurrentLevel")]
 script = ExtResource("1_0mgsx")
-StartPosition = NodePath("Level/StartPosition")
 Player = NodePath("Player")
 Viewport = NodePath("Viewport")
 GameMenu = NodePath("Viewport/GameMenu")
 FailAudioPlayer = NodePath("FailAudioPlayer")
-button1 = NodePath("Level/Button1")
-button2 = NodePath("Level/Button2")
-button3 = NodePath("Level/Button3")
-button4 = NodePath("Level/Button4")
-button5 = NodePath("Level/Button5")
-button6 = NodePath("Level/Button6")
-button7 = NodePath("Level/Button7")
-button8 = NodePath("Level/Button8")
+CurrentLevel = NodePath("Level")
 
-[node name="Level" type="Node2D" parent="."]
+[node name="Level" type="Node2D" parent="." node_paths=PackedStringArray("StartPosition", "Button1", "Button2", "Button3", "Button4", "Button5", "Button6", "Button7", "Button8")]
+script = ExtResource("2_bjfbf")
+StartPosition = NodePath("StartPosition")
+Button1 = NodePath("Button1")
+Button2 = NodePath("Button2")
+Button3 = NodePath("Button3")
+Button4 = NodePath("Button4")
+Button5 = NodePath("Button5")
+Button6 = NodePath("Button6")
+Button7 = NodePath("Button7")
+Button8 = NodePath("Button8")
 
 [node name="Background" type="TextureRect" parent="Level"]
 anchors_preset = 15
@@ -670,7 +674,7 @@ Sound = ExtResource("14_faefg")
 
 [node name="Button8" parent="Level" instance=ExtResource("5_2r28v")]
 position = Vector2(79, 408)
-Sound = ExtResource("8_pvgkb")
+Sound = ExtResource("15_rpayj")
 
 [node name="StartPosition" type="Marker2D" parent="Level"]
 position = Vector2(190, 115)
