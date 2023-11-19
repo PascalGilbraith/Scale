@@ -5,7 +5,7 @@ using System.Diagnostics;
 public partial class player : CharacterBody2D
 {
 	public const float Speed = 300.0f;
-	public const float JumpVelocity = -400.0f;
+	public const float JumpVelocity = -300.0f;
 
 	private int jumpCount = 0;
 	private bool isWallJumping = false;
