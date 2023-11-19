@@ -19,7 +19,31 @@ public partial class main : Node
 	public PackedScene NextLevel { get; set; }
 
 	[Export]
-	public Level CurrentLevel { get; set; }
+	public Marker2D StartPosition { get; set; }
+
+	[Export]
+	public button Button1 { get; set; }
+
+	[Export]
+	public button Button2 { get; set; }
+
+	[Export]
+	public button Button3 { get; set; }
+
+	[Export]
+	public button Button4 { get; set; }
+
+	[Export]
+	public button Button5 { get; set; }
+
+	[Export]
+	public button Button6 { get; set; }
+
+	[Export]
+	public button Button7 { get; set; }
+
+	[Export]
+	public button Button8 { get; set; }
 
 	public int buttonIndex = 0;
 
@@ -50,13 +74,13 @@ public partial class main : Node
 
 	private void _on_button_1_button_pushed()
 	{
-		CurrentLevel.Button1.PlaySound();
+		Button1.PlaySound();
 
 		if (buttonIndex == 0)
 		{
 			buttonIndex++;
-			CurrentLevel.Button1.IsHighlighted = false;
-			CurrentLevel.Button2.IsHighlighted = true;
+			Button1.IsHighlighted = false;
+			Button2.IsHighlighted = true;
 		}
 		else
 		{
@@ -66,13 +90,13 @@ public partial class main : Node
 
 	private void _on_button_2_button_pushed()
 	{
-		CurrentLevel.Button2.PlaySound();
+		Button2.PlaySound();
 
 		if (buttonIndex == 1)
 		{
 			buttonIndex++;
-			CurrentLevel.Button2.IsHighlighted = false;
-			CurrentLevel.Button3.IsHighlighted = true;
+			Button2.IsHighlighted = false;
+			Button3.IsHighlighted = true;
 		}
 		else
 		{
@@ -82,13 +106,13 @@ public partial class main : Node
 
 	private void _on_button_3_button_pushed()
 	{
-		CurrentLevel.Button3.PlaySound();
+		Button3.PlaySound();
 
 		if (buttonIndex == 2)
 		{
 			buttonIndex++;
-			CurrentLevel.Button3.IsHighlighted = false;
-			CurrentLevel.Button4.IsHighlighted = true;
+			Button3.IsHighlighted = false;
+			Button4.IsHighlighted = true;
 		}
 		else
 		{
@@ -98,13 +122,13 @@ public partial class main : Node
 
 	private void _on_button_4_button_pushed()
 	{
-		CurrentLevel.Button4.PlaySound();
+		Button4.PlaySound();
 
 		if (buttonIndex == 3)
 		{
 			buttonIndex++;
-			CurrentLevel.Button4.IsHighlighted = false;
-			CurrentLevel.Button5.IsHighlighted = true;
+			Button4.IsHighlighted = false;
+			Button5.IsHighlighted = true;
 		}
 		else
 		{
@@ -114,13 +138,13 @@ public partial class main : Node
 
 	private void _on_button_5_button_pushed()
 	{
-		CurrentLevel.Button5.PlaySound();
+		Button5.PlaySound();
 
 		if (buttonIndex == 4)
 		{
 			buttonIndex++;
-			CurrentLevel.Button5.IsHighlighted = false;
-			CurrentLevel.Button6.IsHighlighted = true;
+			Button5.IsHighlighted = false;
+			Button6.IsHighlighted = true;
 		}
 		else
 		{
@@ -130,13 +154,13 @@ public partial class main : Node
 
 	private void _on_button_6_button_pushed()
 	{
-		CurrentLevel.Button6.PlaySound();
+		Button6.PlaySound();
 
 		if (buttonIndex == 5)
 		{
 			buttonIndex++;
-			CurrentLevel.Button6.IsHighlighted = false;
-			CurrentLevel.Button7.IsHighlighted = true;
+			Button6.IsHighlighted = false;
+			Button7.IsHighlighted = true;
 		}
 		else
 		{
@@ -146,13 +170,13 @@ public partial class main : Node
 
 	private void _on_button_7_button_pushed()
 	{
-		CurrentLevel.Button7.PlaySound();
+		Button7.PlaySound();
 
 		if (buttonIndex == 6)
 		{
 			buttonIndex++;
-			CurrentLevel.Button7.IsHighlighted = false;
-			CurrentLevel.Button8.IsHighlighted = true;
+			Button7.IsHighlighted = false;
+			Button8.IsHighlighted = true;
 		}
 		else
 		{
@@ -162,7 +186,7 @@ public partial class main : Node
 
 	private void _on_button_8_button_pushed()
 	{
-		CurrentLevel.Button8.PlaySound();
+		Button8.PlaySound();
 
 		if (buttonIndex == 7)
 		{
@@ -182,9 +206,9 @@ public partial class main : Node
 	private void Reset()
 	{
 		buttonIndex = 0;
-		Player.Position = CurrentLevel.StartPosition.Position;
+		Player.Position = StartPosition.Position;
 		GetTree().CallGroup("buttons", button.MethodName.Reset);
-		CurrentLevel.Button1.IsHighlighted = true;
+		Button1.IsHighlighted = true;
 	}
 	
 	private void Win()
@@ -194,7 +218,25 @@ public partial class main : Node
 		// Play win sound (descending part of scale)
 
 		// Move to next level
-		GetTree().ChangeSceneToPacked(NextLevel);
+		GetTree().Paused = true;
+
+		if (NextLevel == null)
+		{
+			// End game
+		}
+		else
+		{
+			//CurrentLevel.Free();
+
+			//var nextLevel = NextLevel.Instantiate<Level>();
+			//AddChild(nextLevel);
+			
+			//CurrentLevel = nextLevel;
+			// Load NextLevel
+			GetTree().ChangeSceneToPacked(NextLevel);
+		}
+		
+		GetTree().Paused = false;
 	}
 
 	private void Fail()
