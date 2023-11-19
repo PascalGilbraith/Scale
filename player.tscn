@@ -1,6 +1,6 @@
 [gd_scene load_steps=68 format=3 uid="uid://d1x34jlvqptdi"]
 
-[ext_resource type="Script" path="res://player.cs" id="1_4j60e"]
+[ext_resource type="Script" path="res://player.gd" id="1_b43nm"]
 [ext_resource type="Texture2D" uid="uid://b4hfpuuj7eijb" path="res://Images/Idle (32x32).png" id="2_g2bxl"]
 [ext_resource type="Texture2D" uid="uid://jdkhy18i22bd" path="res://Images/Fall (32x32).png" id="2_lm8ni"]
 [ext_resource type="Texture2D" uid="uid://dwe0oakjxy660" path="res://Images/Appearing (96x96).png" id="2_ujyjy"]
@@ -453,12 +453,12 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("TimerWallJump", "SpawnTimer", "DeSpawnTimer", "Sprite")]
-script = ExtResource("1_4j60e")
-TimerWallJump = NodePath("TimerWallJump")
-SpawnTimer = NodePath("TimerSpawn")
-DeSpawnTimer = NodePath("TimerDeSpawn")
-Sprite = NodePath("AnimatedSprite2D")
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("timer_wall_jump", "timer_spawn", "timer_despawn", "sprite")]
+script = ExtResource("1_b43nm")
+timer_wall_jump = NodePath("TimerWallJump")
+timer_spawn = NodePath("TimerSpawn")
+timer_despawn = NodePath("TimerDeSpawn")
+sprite = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_58cf7")
