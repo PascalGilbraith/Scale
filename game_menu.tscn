@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://dq0u68rybgoll"]
 
-[ext_resource type="Script" path="res://game_menu.cs" id="1_x5lcl"]
+[ext_resource type="Script" path="res://game_menu.gd" id="1_xeapf"]
 
 [node name="GameMenu" type="CanvasLayer"]
 process_mode = 3
-script = ExtResource("1_x5lcl")
+script = ExtResource("1_xeapf")
 
 [node name="Button_Play" type="Button" parent="."]
 anchors_preset = 8
