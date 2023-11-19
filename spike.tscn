@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://c56jtijlpjnui"]
 
+[ext_resource type="Script" path="res://spike.gd" id="1_e1qet"]
 [ext_resource type="Texture2D" uid="uid://d37ycuv1k2ug3" path="res://Images/Spike.png" id="1_gua1a"]
-[ext_resource type="Script" path="res://spike.cs" id="1_k54as"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mkhg5"]
 radius = 3.5
 height = 11.0
 
 [node name="Spike" type="StaticBody2D"]
-script = ExtResource("1_k54as")
+script = ExtResource("1_e1qet")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 4.5)
