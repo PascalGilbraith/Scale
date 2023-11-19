@@ -42,7 +42,7 @@ func _physics_process(delta):
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or is_on_wall()): # Add || jumpCount < 2 to allow double jump.
 		velocity.y = JUMP_VELOCITY
-		++jump_count
+		jump_count += 1
 		
 		if is_on_wall() and not is_on_floor():
 			is_wall_jumping = true

@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://bpilp1pcv4apf"]
 
-[ext_resource type="Script" path="res://main.cs" id="1_1wfwu"]
+[ext_resource type="Script" path="res://main.gd" id="1_tx68q"]
 [ext_resource type="Texture2D" uid="uid://bworxg0gr31yq" path="res://Images/Gray.png" id="2_0qqsd"]
 [ext_resource type="PackedScene" uid="uid://phtslvx3t3la" path="res://button.tscn" id="3_qn0et"]
 [ext_resource type="AudioStream" uid="uid://2osufaiv3bdv" path="res://Sound/D5.wav" id="5_oconc"]
@@ -595,21 +595,21 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_otyrq")
 sources/0 = SubResource("TileSetAtlasSource_7sbvo")
 
-[node name="Main" type="Node" node_paths=PackedStringArray("Player", "Viewport", "GameMenu", "FailAudioPlayer", "StartPosition", "Button1", "Button2", "Button3", "Button4", "Button5", "Button6", "Button7", "Button8")]
-script = ExtResource("1_1wfwu")
-Player = NodePath("Player")
-Viewport = NodePath("Viewport")
-GameMenu = NodePath("Viewport/GameMenu")
-FailAudioPlayer = NodePath("FailAudioPlayer")
-StartPosition = NodePath("StartPosition")
-Button1 = NodePath("Button1")
-Button2 = NodePath("Button2")
-Button3 = NodePath("Button3")
-Button4 = NodePath("Button4")
-Button5 = NodePath("Button5")
-Button6 = NodePath("Button6")
-Button7 = NodePath("Button7")
-Button8 = NodePath("Button8")
+[node name="Main" type="Node" node_paths=PackedStringArray("player", "viewport", "game_menu", "fail_audio_player", "start_position", "button1", "button2", "button3", "button4", "button5", "button6", "button7", "button8")]
+script = ExtResource("1_tx68q")
+player = NodePath("Player")
+viewport = NodePath("Viewport")
+game_menu = NodePath("Viewport/GameMenu")
+fail_audio_player = NodePath("FailAudioPlayer")
+start_position = NodePath("StartPosition")
+button1 = NodePath("Button1")
+button2 = NodePath("Button2")
+button3 = NodePath("Button3")
+button4 = NodePath("Button4")
+button5 = NodePath("Button5")
+button6 = NodePath("Button6")
+button7 = NodePath("Button7")
+button8 = NodePath("Button8")
 
 [node name="Background" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -702,12 +702,11 @@ position_smoothing_enabled = true
 
 [node name="GameMenu" parent="Viewport" instance=ExtResource("16_1v2n6")]
 
-[connection signal="ButtonPushed" from="Button1" to="." method="_on_button_1_button_pushed"]
-[connection signal="ButtonPushed" from="Button2" to="." method="_on_button_2_button_pushed"]
-[connection signal="ButtonPushed" from="Button3" to="." method="_on_button_3_button_pushed"]
-[connection signal="ButtonPushed" from="Button4" to="." method="_on_button_4_button_pushed"]
-[connection signal="ButtonPushed" from="Button5" to="." method="_on_button_5_button_pushed"]
-[connection signal="ButtonPushed" from="Button6" to="." method="_on_button_6_button_pushed"]
-[connection signal="ButtonPushed" from="Button7" to="." method="_on_button_7_button_pushed"]
-[connection signal="ButtonPushed" from="Button8" to="." method="_on_button_8_button_pushed"]
-[connection signal="PlayerDied" from="Player" to="." method="_on_player_player_died"]
+[connection signal="button_pushed" from="Button1" to="." method="_on_button_1_button_pushed"]
+[connection signal="button_pushed" from="Button2" to="." method="_on_button_2_button_pushed"]
+[connection signal="button_pushed" from="Button3" to="." method="_on_button_3_button_pushed"]
+[connection signal="button_pushed" from="Button4" to="." method="_on_button_4_button_pushed"]
+[connection signal="button_pushed" from="Button5" to="." method="_on_button_5_button_pushed"]
+[connection signal="button_pushed" from="Button6" to="." method="_on_button_6_button_pushed"]
+[connection signal="button_pushed" from="Button7" to="." method="_on_button_7_button_pushed"]
+[connection signal="button_pushed" from="Button8" to="." method="_on_button_8_button_pushed"]
