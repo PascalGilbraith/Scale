@@ -203,23 +203,13 @@ public partial class main : Node
 		Fail();
 	}
 
-	private void Reset()
+	private void _on_player_player_spawned()
 	{
-		buttonIndex = 0;
-		Player.Position = StartPosition.Position;
-		GetTree().CallGroup("buttons", button.MethodName.Reset);
-		Button1.IsHighlighted = true;
+		GetTree().Paused = false;
 	}
-	
-	private void Win()
+
+	private void _on_player_player_de_spawned()
 	{
-		// Zoom view into player
-		
-		// Play win sound (descending part of scale)
-
-		// Move to next level
-		GetTree().Paused = true;
-
 		if (NextLevel == null)
 		{
 			// End game
@@ -235,8 +225,25 @@ public partial class main : Node
 			// Load NextLevel
 			GetTree().ChangeSceneToPacked(NextLevel);
 		}
+	}
+
+	private void Reset()
+	{
+		buttonIndex = 0;
+		GetTree().CallGroup("buttons", button.MethodName.Reset);
+		Button1.IsHighlighted = true;
+
+		Player.Spawn(StartPosition.Position);
+	}
+	
+	private void Win()
+	{
+		// Zoom view into player
 		
-		GetTree().Paused = false;
+		// Play win sound (descending part of scale)
+
+		// Move to next level
+		Player.DeSpawn();
 	}
 
 	private void Fail()

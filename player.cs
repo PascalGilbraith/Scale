@@ -13,14 +13,34 @@ public partial class player : CharacterBody2D
 	[Export]
 	public Timer TimerWallJump { get; set; }
 
+	[Export]
+	public Timer SpawnTimer { get; set; }
+
+	[Export]
+	public Timer DeSpawnTimer { get; set; }
+
+	[Export]
+	public AnimatedSprite2D Sprite { get; set; }
+
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
 	[Signal]
 	public delegate void PlayerDiedEventHandler();
 
+	[Signal]
+	public delegate void PlayerSpawnedEventHandler();
+
+	[Signal]
+	public delegate void PlayerDeSpawnedEventHandler();
+
 	public override void _PhysicsProcess(double delta)
 	{
+		if (!SpawnTimer.IsStopped() || !DeSpawnTimer.IsStopped())
+		{
+			return;
+		}
+
 		// Check for collisions with spikes.
 		var collisionCount = GetSlideCollisionCount();
 		for (int i = 0; i < collisionCount; i++)
@@ -62,23 +82,21 @@ public partial class player : CharacterBody2D
 			}
 		}
 
-		var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
 		
 		if (isWallJumping)
 		{
-			animatedSprite2D.FlipH = direction.X < 0;
-			animatedSprite2D.Play("wall_jump");
+			Sprite.FlipH = direction.X < 0;
+			Sprite.Play("wall_jump");
 		}
 		else if (direction != Vector2.Zero)
 		{
-			animatedSprite2D.FlipH = direction.X < 0;
+			Sprite.FlipH = direction.X < 0;
 			if (IsOnFloor())
 			{
 				velocity.X = direction.X * Speed;
-				animatedSprite2D.Play("run");
+				Sprite.Play("run");
 			}
 			else
 			{
@@ -93,23 +111,23 @@ public partial class player : CharacterBody2D
 
 				if (velocity.Y > 0)
 				{
-					animatedSprite2D.Play("fall");
+					Sprite.Play("fall");
 				}
 				else
 				{
 					if (jumpCount == 1)
 					{
-						animatedSprite2D.Play("jump");
+						Sprite.Play("jump");
 					}
 					else
 					{
 						if (IsOnWall())
 						{
-							animatedSprite2D.Play("wall_jump");
+							Sprite.Play("wall_jump");
 						}
 						else
 						{
-							animatedSprite2D.Play("double_jump");
+							Sprite.Play("double_jump");
 						}
 					}
 				}
@@ -121,29 +139,29 @@ public partial class player : CharacterBody2D
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 			if (IsOnFloor())
 			{
-				animatedSprite2D.Play("idle");
+				Sprite.Play("idle");
 			}
 			else
 			{
 				if (velocity.Y > 0)
 				{
-					animatedSprite2D.Play("fall");
+					Sprite.Play("fall");
 				}
 				else
 				{
 					if (jumpCount == 1)
 					{
-						animatedSprite2D.Play("jump");
+						Sprite.Play("jump");
 					}
 					else
 					{
 						if (IsOnWall())
 						{
-							animatedSprite2D.Play("wall_jump");
+							Sprite.Play("wall_jump");
 						}
 						else
 						{
-							animatedSprite2D.Play("double_jump");
+							Sprite.Play("double_jump");
 						}
 					}
 				}
@@ -152,6 +170,19 @@ public partial class player : CharacterBody2D
 
 		Velocity = velocity;
 		MoveAndSlide();
+	}
+
+	public void Spawn(Vector2 position)
+	{
+		Position = position;
+		Sprite.Play("appear");
+		SpawnTimer.Start();
+	}
+
+	public void DeSpawn()
+	{
+		Sprite.Play("disappear");
+		DeSpawnTimer.Start();
 	}
 
 	private void _on_visible_on_screen_notifier_2d_screen_exited()
@@ -163,5 +194,15 @@ public partial class player : CharacterBody2D
 	private void _on_timer_wall_jump_timeout()
 	{
 		isWallJumping = false;
+	}
+
+	private void _on_timer_spawn_timeout()
+	{
+		EmitSignal(SignalName.PlayerSpawned);
+	}
+
+	private void _on_timer_de_spawn_timeout()
+	{
+		EmitSignal(SignalName.PlayerDeSpawned);
 	}
 }

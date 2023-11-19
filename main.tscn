@@ -687,4 +687,6 @@ position_smoothing_enabled = true
 [connection signal="ButtonPushed" from="Button6" to="." method="_on_button_6_button_pushed"]
 [connection signal="ButtonPushed" from="Button7" to="." method="_on_button_7_button_pushed"]
 [connection signal="ButtonPushed" from="Button8" to="." method="_on_button_8_button_pushed"]
+[connection signal="PlayerDeSpawned" from="Player" to="." method="_on_player_player_de_spawned"]
 [connection signal="PlayerDied" from="Player" to="." method="_on_player_player_died"]
+[connection signal="PlayerSpawned" from="Player" to="." method="_on_player_player_spawned"]

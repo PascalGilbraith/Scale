@@ -233,7 +233,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dgho5")
 }],
-"loop": true,
+"loop": false,
 "name": &"appear",
 "speed": 20.0
 }, {
@@ -259,7 +259,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mv43m")
 }],
-"loop": true,
+"loop": false,
 "name": &"disappear",
 "speed": 20.0
 }, {
@@ -405,9 +405,12 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("TimerWallJump")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("TimerWallJump", "SpawnTimer", "DeSpawnTimer", "Sprite")]
 script = ExtResource("1_4j60e")
 TimerWallJump = NodePath("TimerWallJump")
+SpawnTimer = NodePath("TimerSpawn")
+DeSpawnTimer = NodePath("TimerDeSpawn")
+Sprite = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_58cf7")
@@ -425,5 +428,15 @@ autoplay = "idle"
 wait_time = 2.0
 one_shot = true
 
+[node name="TimerSpawn" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="TimerDeSpawn" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="timeout" from="TimerWallJump" to="." method="_on_timer_wall_jump_timeout"]
+[connection signal="timeout" from="TimerSpawn" to="." method="_on_timer_spawn_timeout"]
+[connection signal="timeout" from="TimerDeSpawn" to="." method="_on_timer_de_spawn_timeout"]
