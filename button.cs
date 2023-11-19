@@ -6,6 +6,12 @@ public partial class button : Area2D
 	[Signal]
 	public delegate void ButtonPushedEventHandler();
 
+	[Export]
+	public AudioStream Sound { get; set; }
+
+	[Export]
+	public AudioStreamPlayer2D AudioPlayer { get; set; }
+
 	public bool IsPushed { get; private set; } = false;
 	public bool IsSingleUse { get; set; } = false;
 
@@ -23,6 +29,8 @@ public partial class button : Area2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		// Set audio from audio stream
+		AudioPlayer.Stream = Sound;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -56,5 +64,10 @@ public partial class button : Area2D
 	{
 		IsPushed = false;
 		IsHighlighted = false;
+	}
+
+	public void PlaySound()
+	{
+		AudioPlayer.Play();
 	}
 }

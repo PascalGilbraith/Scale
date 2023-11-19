@@ -15,6 +15,30 @@ public partial class main : Node
 	[Export]
 	public PackedScene NextLevel { get; set; }
 
+	[Export]
+	public button button1 { get; set; }
+
+	[Export]
+	public button button2 { get; set; }
+
+	[Export]
+	public button button3 { get; set; }
+
+	[Export]
+	public button button4 { get; set; }
+
+	[Export]
+	public button button5 { get; set; }
+
+	[Export]
+	public button button6 { get; set; }
+
+	[Export]
+	public button button7 { get; set; }
+
+	[Export]
+	public button button8 { get; set; }
+
 	public int buttonIndex = 0;
 
 	// Called when the node enters the scene tree for the first time.
@@ -46,16 +70,13 @@ public partial class main : Node
 
 	private void _on_button_c_button_pushed()
 	{
-		var audioPlayer = GetNode<AudioStreamPlayer>("Level/Button1/AudioPlayer1");
-		audioPlayer.Play();
+		button1.PlaySound();
 
 		if (buttonIndex == 0)
 		{
 			buttonIndex++;
-			var thisButton = GetNode<button>("Level/Button1");
-			thisButton.IsHighlighted = false;
-			var nextButton = GetNode<button>("Level/Button2");
-			nextButton.IsHighlighted = true;
+			button1.IsHighlighted = false;
+			button2.IsHighlighted = true;
 		}
 		else
 		{
@@ -65,16 +86,13 @@ public partial class main : Node
 
 	private void _on_button_d_button_pushed()
 	{
-		var audioPlayer = GetNode<AudioStreamPlayer>("Level/Button2/AudioPlayer2");
-		audioPlayer.Play();
+		button2.PlaySound();
 
 		if (buttonIndex == 1)
 		{
 			buttonIndex++;
-			var thisButton = GetNode<button>("Level/Button2");
-			thisButton.IsHighlighted = false;
-			var nextButton = GetNode<button>("Level/Button3");
-			nextButton.IsHighlighted = true;
+			button2.IsHighlighted = false;
+			button3.IsHighlighted = true;
 		}
 		else
 		{
@@ -84,16 +102,13 @@ public partial class main : Node
 
 	private void _on_button_e_button_pushed()
 	{
-		var audioPlayer = GetNode<AudioStreamPlayer>("Level/Button3/AudioPlayer3");
-		audioPlayer.Play();
+		button3.PlaySound();
 
 		if (buttonIndex == 2)
 		{
 			buttonIndex++;
-			var thisButton = GetNode<button>("Level/Button3");
-			thisButton.IsHighlighted = false;
-			var nextButton = GetNode<button>("Level/Button4");
-			nextButton.IsHighlighted = true;
+			button3.IsHighlighted = false;
+			button4.IsHighlighted = true;
 		}
 		else
 		{
@@ -103,16 +118,13 @@ public partial class main : Node
 
 	private void _on_button_f_button_pushed()
 	{
-		var audioPlayer = GetNode<AudioStreamPlayer>("Level/Button4/AudioPlayer4");
-		audioPlayer.Play();
+		button4.PlaySound();
 
 		if (buttonIndex == 3)
 		{
 			buttonIndex++;
-			var thisButton = GetNode<button>("Level/Button4");
-			thisButton.IsHighlighted = false;
-			var nextButton = GetNode<button>("Level/Button5");
-			nextButton.IsHighlighted = true;
+			button4.IsHighlighted = false;
+			button5.IsHighlighted = true;
 		}
 		else
 		{
@@ -122,16 +134,13 @@ public partial class main : Node
 
 	private void _on_button_g_button_pushed()
 	{
-		var audioPlayer = GetNode<AudioStreamPlayer>("Level/Button5/AudioPlayer5");
-		audioPlayer.Play();
+		button5.PlaySound();
 
 		if (buttonIndex == 4)
 		{
 			buttonIndex++;
-			var thisButton = GetNode<button>("Level/Button5");
-			thisButton.IsHighlighted = false;
-			var nextButton = GetNode<button>("Level/Button6");
-			nextButton.IsHighlighted = true;
+			button5.IsHighlighted = false;
+			button6.IsHighlighted = true;
 		}
 		else
 		{
@@ -141,16 +150,13 @@ public partial class main : Node
 
 	private void _on_button_a_button_pushed()
 	{
-		var audioPlayer = GetNode<AudioStreamPlayer>("Level/Button6/AudioPlayer6");
-		audioPlayer.Play();
+		button6.PlaySound();
 
 		if (buttonIndex == 5)
 		{
 			buttonIndex++;
-			var thisButton = GetNode<button>("Level/Button6");
-			thisButton.IsHighlighted = false;
-			var nextButton = GetNode<button>("Level/Button7");
-			nextButton.IsHighlighted = true;
+			button6.IsHighlighted = false;
+			button7.IsHighlighted = true;
 		}
 		else
 		{
@@ -160,16 +166,13 @@ public partial class main : Node
 
 	private void _on_button_b_button_pushed()
 	{
-		var audioPlayer = GetNode<AudioStreamPlayer>("Level/Button7/AudioPlayer7");
-		audioPlayer.Play();
+		button7.PlaySound();
 
 		if (buttonIndex == 6)
 		{
 			buttonIndex++;
-			var thisButton = GetNode<button>("Level/Button7");
-			thisButton.IsHighlighted = false;
-			var nextButton = GetNode<button>("Level/Button8");
-			nextButton.IsHighlighted = true;
+			button7.IsHighlighted = false;
+			button8.IsHighlighted = true;
 		}
 		else
 		{
@@ -179,8 +182,7 @@ public partial class main : Node
 
 	private void _on_button_c_2_button_pushed()
 	{
-		var audioPlayer = GetNode<AudioStreamPlayer>("Level/Button8/AudioPlayer8");
-		audioPlayer.Play();
+		button8.PlaySound();
 
 		if (buttonIndex == 7)
 		{
@@ -202,7 +204,6 @@ public partial class main : Node
 		buttonIndex = 0;
 		Player.Position = StartPosition.Position;
 		GetTree().CallGroup("buttons", button.MethodName.Reset);
-		var button1 = GetNode<button>("Level/Button1");
 		button1.IsHighlighted = true;
 	}
 	

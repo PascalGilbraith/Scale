@@ -52,8 +52,9 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="Button" type="Area2D" groups=["buttons"]]
+[node name="Button" type="Area2D" node_paths=PackedStringArray("AudioPlayer") groups=["buttons"]]
 script = ExtResource("1_alyux")
+AudioPlayer = NodePath("AudioPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5.5)
@@ -72,5 +73,7 @@ enabled = false
 color = Color(1, 0, 0, 1)
 energy = 16.0
 texture = ExtResource("4_awxit")
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
