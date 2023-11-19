@@ -594,12 +594,13 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_k3a16")
 sources/0 = SubResource("TileSetAtlasSource_1wgal")
 
-[node name="Main" type="Node" node_paths=PackedStringArray("StartPosition", "Player", "Viewport", "GameMenu", "button1", "button2", "button3", "button4", "button5", "button6", "button7", "button8")]
+[node name="Main" type="Node" node_paths=PackedStringArray("StartPosition", "Player", "Viewport", "GameMenu", "FailAudioPlayer", "button1", "button2", "button3", "button4", "button5", "button6", "button7", "button8")]
 script = ExtResource("1_0mgsx")
 StartPosition = NodePath("Level/StartPosition")
 Player = NodePath("Player")
 Viewport = NodePath("Viewport")
 GameMenu = NodePath("Viewport/GameMenu")
+FailAudioPlayer = NodePath("FailAudioPlayer")
 button1 = NodePath("Level/Button1")
 button2 = NodePath("Level/Button2")
 button3 = NodePath("Level/Button3")

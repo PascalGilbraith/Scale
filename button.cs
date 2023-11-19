@@ -15,6 +15,9 @@ public partial class button : Area2D
 	[Export]
 	public AnimatedSprite2D Sprite { get; set; }
 
+	[Export]
+	public PointLight2D Highlight { get; set; }
+
 	public bool IsPushed { get; private set; } = false;
 	public bool IsSingleUse { get; set; } = false;
 
@@ -24,8 +27,7 @@ public partial class button : Area2D
 		set
 		{
 			isHighlighted = value;
-			var highlight = GetNode<PointLight2D>("Light");
-			highlight.Enabled = isHighlighted;
+			Highlight.Enabled = isHighlighted;
 		}
 	}
 

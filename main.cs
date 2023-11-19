@@ -16,6 +16,9 @@ public partial class main : Node
 	public game_menu GameMenu { get; set; }
 
 	[Export]
+	public AudioStreamPlayer FailAudioPlayer { get; set; }
+
+	[Export]
 	public PackedScene NextLevel { get; set; }
 
 	[Export]
@@ -220,8 +223,7 @@ public partial class main : Node
 
 	private void Fail()
 	{
-		var failAudioPlayer = GetNode<AudioStreamPlayer>("FailAudioPlayer");
-		failAudioPlayer.Play();
+		FailAudioPlayer.Play();
 
 		Reset();
 	}
