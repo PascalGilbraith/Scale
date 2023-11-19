@@ -48,7 +48,7 @@ public partial class main : Node
 		}
 	}
 
-	private void _on_button_c_button_pushed()
+	private void _on_button_1_button_pushed()
 	{
 		CurrentLevel.Button1.PlaySound();
 
@@ -64,7 +64,7 @@ public partial class main : Node
 		}
 	}
 
-	private void _on_button_d_button_pushed()
+	private void _on_button_2_button_pushed()
 	{
 		CurrentLevel.Button2.PlaySound();
 
@@ -80,7 +80,7 @@ public partial class main : Node
 		}
 	}
 
-	private void _on_button_e_button_pushed()
+	private void _on_button_3_button_pushed()
 	{
 		CurrentLevel.Button3.PlaySound();
 
@@ -96,7 +96,7 @@ public partial class main : Node
 		}
 	}
 
-	private void _on_button_f_button_pushed()
+	private void _on_button_4_button_pushed()
 	{
 		CurrentLevel.Button4.PlaySound();
 
@@ -112,7 +112,7 @@ public partial class main : Node
 		}
 	}
 
-	private void _on_button_g_button_pushed()
+	private void _on_button_5_button_pushed()
 	{
 		CurrentLevel.Button5.PlaySound();
 
@@ -128,7 +128,7 @@ public partial class main : Node
 		}
 	}
 
-	private void _on_button_a_button_pushed()
+	private void _on_button_6_button_pushed()
 	{
 		CurrentLevel.Button6.PlaySound();
 
@@ -144,7 +144,7 @@ public partial class main : Node
 		}
 	}
 
-	private void _on_button_b_button_pushed()
+	private void _on_button_7_button_pushed()
 	{
 		CurrentLevel.Button7.PlaySound();
 
@@ -160,7 +160,7 @@ public partial class main : Node
 		}
 	}
 
-	private void _on_button_c_2_button_pushed()
+	private void _on_button_8_button_pushed()
 	{
 		CurrentLevel.Button8.PlaySound();
 
