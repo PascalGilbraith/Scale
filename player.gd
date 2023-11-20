@@ -1,7 +1,8 @@
 extends CharacterBody2D
 class_name player
 
-const SPEED = 300.0
+const SPEED = 200.0
+const ACCELERATION = 50.0
 const JUMP_VELOCITY = -400.0
 
 var jump_count: int = 0
@@ -58,11 +59,12 @@ func _physics_process(delta):
 	elif direction:
 		sprite.flip_h = direction < 0;
 		if is_on_floor():
-			velocity.x = direction * SPEED
+			velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION)
 			sprite.play("run")
 		else:
 			if is_on_wall_only() and Input.is_action_just_pressed("ui_accept"):
-				velocity.x = -direction * (SPEED / 2)
+				var wall_direction = get_wall_normal()
+				velocity.x = wall_direction * (SPEED / 2)
 			else:
 				velocity.x = move_toward(velocity.x, direction * SPEED, SPEED / 2)
 			
@@ -77,7 +79,7 @@ func _physics_process(delta):
 					else:
 						sprite.play("double_jump")
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, ACCELERATION)
 		if is_on_floor():
 			sprite.play("idle")
 		else:
