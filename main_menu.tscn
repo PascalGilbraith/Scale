@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://4kf5da6q0njq"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_fhscl"]
-[ext_resource type="PackedScene" uid="uid://7c7mjdtpqpu" path="res://main.tscn" id="2_jjrhc"]
+[ext_resource type="PackedScene" uid="uid://7c7mjdtpqpu" path="res://Levels/main.tscn" id="2_6wuiv"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_fhscl")
-first_scene = ExtResource("2_jjrhc")
+first_scene = ExtResource("2_6wuiv")
 
 [node name="Button_Play" type="Button" parent="."]
 anchors_preset = 8
