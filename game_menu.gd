@@ -1,6 +1,11 @@
 extends CanvasLayer
 class_name game_menu
 
+func _ready():
+	if not OS.has_feature("web"):
+		var quit_button = get_node("Button_Quit")
+		quit_button.hide()
+
 func _on_button_play_pressed():
 	var scene_file = get_tree().current_scene.scene_file_path
 	if scene_file.ends_with("main.tscn"):
