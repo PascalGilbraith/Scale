@@ -2,7 +2,8 @@ extends CharacterBody2D
 class_name player
 
 const SPEED = 200.0
-const ACCELERATION = 50.0
+const ACCELERATION = 20.0
+const DECELERATION = 100.0
 const JUMP_VELOCITY = -400.0
 
 var jump_count: int = 0
@@ -64,9 +65,10 @@ func _physics_process(delta):
 		else:
 			if is_on_wall_only() and Input.is_action_just_pressed("ui_accept"):
 				var wall_direction = get_wall_normal()
+				sprite.flip_h = wall_direction < 0;
 				velocity.x = wall_direction * (SPEED / 2)
 			else:
-				velocity.x = move_toward(velocity.x, direction * SPEED, SPEED / 2)
+				velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION)
 			
 			if velocity.y > 0:
 				sprite.play("fall")
@@ -79,20 +81,25 @@ func _physics_process(delta):
 					else:
 						sprite.play("double_jump")
 	else:
-		velocity.x = move_toward(velocity.x, 0, ACCELERATION)
-		if is_on_floor():
-			sprite.play("idle")
+		if is_on_wall_only() and Input.is_action_just_pressed("ui_accept"):
+			var wall_direction = get_wall_normal()
+			sprite.flip_h = wall_direction < 0;
+			velocity.x = wall_direction * (SPEED / 2)
 		else:
-			if velocity.y > 0:
-				sprite.play("fall")
+			velocity.x = move_toward(velocity.x, 0, DECELERATION)
+			if is_on_floor():
+				sprite.play("idle")
 			else:
-				if jump_count == 1:
-					sprite.play("jump")
+				if velocity.y > 0:
+					sprite.play("fall")
 				else:
-					if is_on_wall():
-						sprite.play("wall_jump")
+					if jump_count == 1:
+						sprite.play("jump")
 					else:
-						sprite.play("double_jump")
+						if is_on_wall():
+							sprite.play("wall_jump")
+						else:
+							sprite.play("double_jump")
 
 	move_and_slide()
 
