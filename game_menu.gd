@@ -8,7 +8,7 @@ func _on_button_play_pressed():
 		hide()
 		get_tree().paused = false
 	else:
-		get_tree().change_scene_to_file("res://main.tscn")
+		get_tree().change_scene_to_file("res://Levels/main.tscn")
 		hide()
 		get_tree().paused = false
 
