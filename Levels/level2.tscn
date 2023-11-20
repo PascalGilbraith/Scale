@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://bpilp1pcv4apf"]
+[gd_scene load_steps=21 format=3 uid="uid://bpilp1pcv4apf"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_tnpty"]
+[ext_resource type="PackedScene" uid="uid://bxqc6bb0uruab" path="res://Levels/level3.tscn" id="2_fw4n1"]
 [ext_resource type="Texture2D" uid="uid://bworxg0gr31yq" path="res://Images/Gray.png" id="2_kd7ib"]
 [ext_resource type="Texture2D" uid="uid://bycy28cs5nhhf" path="res://Images/Terrain (16x16).png" id="3_0c8kw"]
 [ext_resource type="PackedScene" uid="uid://phtslvx3t3la" path="res://button.tscn" id="4_qwc3b"]
@@ -601,6 +602,7 @@ player = NodePath("Player")
 viewport = NodePath("Viewport")
 game_menu = NodePath("Viewport/GameMenu")
 fail_audio_player = NodePath("FailAudioPlayer")
+next_level = ExtResource("2_fw4n1")
 start_position = NodePath("StartPosition")
 button1 = NodePath("Button1")
 button2 = NodePath("Button2")
@@ -710,3 +712,6 @@ position_smoothing_enabled = true
 [connection signal="button_pushed" from="Button6" to="." method="_on_button_6_button_pushed"]
 [connection signal="button_pushed" from="Button7" to="." method="_on_button_7_button_pushed"]
 [connection signal="button_pushed" from="Button8" to="." method="_on_button_8_button_pushed"]
+[connection signal="player_despawned" from="Player" to="." method="_on_player_player_despawned"]
+[connection signal="player_died" from="Player" to="." method="_on_player_player_died"]
+[connection signal="player_spawned" from="Player" to="." method="_on_player_player_spawned"]
