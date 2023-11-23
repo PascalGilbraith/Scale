@@ -1,7 +1,93 @@
-[gd_scene load_steps=3 format=3 uid="uid://4kf5da6q0njq"]
+[gd_scene load_steps=16 format=3 uid="uid://4kf5da6q0njq"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_fhscl"]
 [ext_resource type="PackedScene" uid="uid://7c7mjdtpqpu" path="res://Levels/main.tscn" id="2_6wuiv"]
+[ext_resource type="Texture2D" uid="uid://b4hfpuuj7eijb" path="res://Images/Idle (32x32).png" id="3_m44jh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcfp6"]
+atlas = ExtResource("3_m44jh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8ip8"]
+atlas = ExtResource("3_m44jh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjdwn"]
+atlas = ExtResource("3_m44jh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qsh2"]
+atlas = ExtResource("3_m44jh")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r28gk"]
+atlas = ExtResource("3_m44jh")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gauq"]
+atlas = ExtResource("3_m44jh")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62mlx"]
+atlas = ExtResource("3_m44jh")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ggi7"]
+atlas = ExtResource("3_m44jh")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nf0lx"]
+atlas = ExtResource("3_m44jh")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vv862"]
+atlas = ExtResource("3_m44jh")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w582f"]
+atlas = ExtResource("3_m44jh")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_55cct"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcfp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8ip8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjdwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qsh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r28gk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gauq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62mlx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ggi7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nf0lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vv862")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w582f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_fhscl")
@@ -34,6 +120,13 @@ offset_bottom = 12.22
 grow_horizontal = 2
 grow_vertical = 2
 text = "Quit"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(161, 559)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_55cct")
+autoplay = "default"
 
 [connection signal="pressed" from="Button_Play" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="Button_Quit" to="." method="_on_button_quit_pressed"]
