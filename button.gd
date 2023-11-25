@@ -27,11 +27,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Sprite.animation == "press" and Sprite.frame_progress == 1:
+	if Sprite.animation == "release" and Sprite.frame_progress == 1:
 		Sprite.play("idle")
 
 func _on_body_entered(body):
 	if body is player:
+		AudioPlayer.play()
 		Sprite.play("press")
 		if not is_single_use || not is_pushed:
 			emit_signal("button_pushed")
@@ -42,3 +43,7 @@ func reset():
 
 func play_sound():
 	AudioPlayer.play()
+
+func _on_body_exited(body):
+	if body is player:
+		Sprite.play("release")

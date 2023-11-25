@@ -22,6 +22,10 @@ var button_index: int = 1
 func _ready():
 	game_menu.hide()
 	reset()
+	button1.play_sound()
+	button3.play_sound()
+	button5.play_sound()
+	button8.play_sound()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -31,7 +35,6 @@ func _process(_delta):
 		game_menu.show()
 
 func _on_button_1_button_pushed():
-	button1.play_sound()
 	if button_index == 1:
 		button_index += 1
 		button1.set_is_highlighted(false)
@@ -40,7 +43,6 @@ func _on_button_1_button_pushed():
 		fail()
 
 func _on_button_2_button_pushed():
-	button2.play_sound()
 	if button_index == 2:
 		button_index += 1
 		button2.set_is_highlighted(false)
@@ -49,7 +51,6 @@ func _on_button_2_button_pushed():
 		fail()
 
 func _on_button_3_button_pushed():
-	button3.play_sound()
 	if button_index == 3:
 		button_index += 1
 		button3.set_is_highlighted(false)
@@ -58,7 +59,6 @@ func _on_button_3_button_pushed():
 		fail()
 
 func _on_button_4_button_pushed():
-	button4.play_sound()
 	if button_index == 4:
 		button_index += 1
 		button4.set_is_highlighted(false)
@@ -67,7 +67,6 @@ func _on_button_4_button_pushed():
 		fail()
 
 func _on_button_5_button_pushed():
-	button5.play_sound()
 	if button_index == 5:
 		button_index += 1
 		button5.set_is_highlighted(false)
@@ -76,7 +75,6 @@ func _on_button_5_button_pushed():
 		fail()
 
 func _on_button_6_button_pushed():
-	button6.play_sound()
 	if button_index == 6:
 		button_index += 1
 		button6.set_is_highlighted(false)
@@ -85,7 +83,6 @@ func _on_button_6_button_pushed():
 		fail()
 
 func _on_button_7_button_pushed():
-	button7.play_sound()
 	if button_index == 7:
 		button_index += 1
 		button7.set_is_highlighted(false)
@@ -94,7 +91,6 @@ func _on_button_7_button_pushed():
 		fail()
 
 func _on_button_8_button_pushed():
-	button8.play_sound()
 	if button_index == 8:
 		win()
 	else:

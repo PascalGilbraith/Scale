@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://phtslvx3t3la"]
+[gd_scene load_steps=15 format=3 uid="uid://phtslvx3t3la"]
 
 [ext_resource type="Script" path="res://button.gd" id="1_a8pru"]
 [ext_resource type="Texture2D" uid="uid://cdpw2ggdcks4r" path="res://Images/Button.png" id="1_qkptc"]
@@ -20,6 +20,22 @@ region = Rect2(32, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_hkc18"]
 atlas = ExtResource("3_8br0l")
 region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxuax"]
+atlas = ExtResource("3_8br0l")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r755i"]
+atlas = ExtResource("3_8br0l")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2rc8"]
+atlas = ExtResource("3_8br0l")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ftqa"]
+atlas = ExtResource("3_8br0l")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_01nem"]
 animations = [{
@@ -47,6 +63,23 @@ animations = [{
 "loop": false,
 "name": &"press",
 "speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxuax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r755i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2rc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ftqa")
+}],
+"loop": false,
+"name": &"release",
+"speed": 20.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xtqxw"]
@@ -62,7 +95,7 @@ Highlight = NodePath("Light")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_01nem")
-animation = &"press"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Light" type="PointLight2D" parent="."]
@@ -81,3 +114,4 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_xtqxw")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
