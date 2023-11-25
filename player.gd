@@ -39,20 +39,23 @@ func _physics_process(delta):
 		jump_count = 0
 		is_wall_jumping = false
 	
-	var direction = Input.get_axis("ui_left", "ui_right")
+	if is_on_wall():
+		is_wall_jumping = false
 	
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or is_on_wall()): # Add || jumpCount < 2 to allow double jump.
-		velocity.y = JUMP_VELOCITY
-		jump_count += 1
-		
 		if is_on_wall() and not is_on_floor():
 			is_wall_jumping = true
 			timer_wall_jump.start()
-			velocity.x = -direction * (SPEED / 2)
+			var wall_direction = get_wall_normal()
+			velocity = wall_direction * (SPEED / 2)
+		
+		velocity.y = JUMP_VELOCITY
+		jump_count += 1
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction = Input.get_axis("ui_left", "ui_right")
 
 	if is_wall_jumping:
 		sprite.flip_h = direction < 0;
