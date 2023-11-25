@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bxqc6bb0uruab"]
+[gd_scene load_steps=21 format=3 uid="uid://bxqc6bb0uruab"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_gbldd"]
 [ext_resource type="PackedScene" uid="uid://c82oghue3jauc" path="res://Levels/level4.tscn" id="2_hxdib"]
@@ -595,6 +595,13 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_otyrq")
 sources/0 = SubResource("TileSetAtlasSource_7sbvo")
 
+[sub_resource type="LabelSettings" id="LabelSettings_o3cqe"]
+font_color = Color(1, 0.905882, 0.384314, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+
 [node name="Main" type="Node" node_paths=PackedStringArray("player", "viewport", "game_menu", "fail_audio_player", "start_position", "button1", "button2", "button3", "button4", "button5", "button6", "button7", "button8")]
 script = ExtResource("1_gbldd")
 player = NodePath("Player")
@@ -678,6 +685,15 @@ zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="GameMenu" parent="Viewport" instance=ExtResource("16_15toj")]
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 180.0
+offset_top = 435.0
+offset_right = 357.0
+offset_bottom = 461.0
+text = "Wall jump"
+label_settings = SubResource("LabelSettings_o3cqe")
 
 [connection signal="button_pushed" from="Button1" to="." method="_on_button_1_button_pushed"]
 [connection signal="button_pushed" from="Button2" to="." method="_on_button_2_button_pushed"]
