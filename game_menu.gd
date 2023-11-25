@@ -2,7 +2,7 @@ extends CanvasLayer
 class_name game_menu
 
 func _ready():
-	if not OS.has_feature("web"):
+	if OS.has_feature("web"):
 		var quit_button = get_node("Button_Quit")
 		quit_button.hide()
 
