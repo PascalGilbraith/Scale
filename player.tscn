@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://d1x34jlvqptdi"]
+[gd_scene load_steps=64 format=3 uid="uid://d1x34jlvqptdi"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_b43nm"]
 [ext_resource type="Texture2D" uid="uid://b4hfpuuj7eijb" path="res://Images/Idle (32x32).png" id="2_g2bxl"]
@@ -218,22 +218,6 @@ region = Rect2(352, 0, 32, 32)
 atlas = ExtResource("7_8lye6")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fbs76"]
-atlas = ExtResource("7_8lye6")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5wlsy"]
-atlas = ExtResource("7_8lye6")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nahun"]
-atlas = ExtResource("7_8lye6")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ucwvf"]
-atlas = ExtResource("7_8lye6")
-region = Rect2(128, 0, 32, 32)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_3dvq5"]
 animations = [{
 "frames": [{
@@ -435,18 +419,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f2gl5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fbs76")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5wlsy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nahun")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ucwvf")
 }],
 "loop": true,
 "name": &"wall_jump",
@@ -467,7 +439,7 @@ shape = SubResource("CapsuleShape2D_58cf7")
 texture_filter = 1
 position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_3dvq5")
-animation = &"double_jump"
+animation = &"wall_jump"
 autoplay = "idle"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

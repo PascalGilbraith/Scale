@@ -43,7 +43,7 @@ func _physics_process(delta):
 		is_wall_jumping = false
 	
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or is_on_wall()): # Add || jumpCount < 2 to allow double jump.
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or is_on_wall()): # Add || jumpCount < 2 to allow double jump.
 		if is_on_wall() and not is_on_floor():
 			is_wall_jumping = true
 			timer_wall_jump.start()
@@ -66,7 +66,7 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION)
 			sprite.play("run")
 		else:
-			if is_on_wall_only() and Input.is_action_just_pressed("ui_accept"):
+			if is_on_wall_only() and Input.is_action_just_pressed("jump"):
 				var wall_direction = get_wall_normal()
 				sprite.flip_h = wall_direction < 0;
 				velocity.x = wall_direction * (SPEED / 2)
@@ -84,7 +84,7 @@ func _physics_process(delta):
 					else:
 						sprite.play("double_jump")
 	else:
-		if is_on_wall_only() and Input.is_action_just_pressed("ui_accept"):
+		if is_on_wall_only() and Input.is_action_just_pressed("jump"):
 			var wall_direction = get_wall_normal()
 			sprite.flip_h = wall_direction < 0;
 			velocity.x = wall_direction * (SPEED / 2)
