@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://c0l2wkfbv1uh0"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ta55g"]
-[ext_resource type="Texture2D" uid="uid://bworxg0gr31yq" path="res://Images/Gray.png" id="2_wag8e"]
+[ext_resource type="Texture2D" uid="uid://upu0q38gd0bf" path="res://Images/background.png" id="2_p131p"]
 [ext_resource type="Texture2D" uid="uid://bycy28cs5nhhf" path="res://Images/Terrain (16x16).png" id="3_11cws"]
 [ext_resource type="PackedScene" uid="uid://phtslvx3t3la" path="res://button.tscn" id="4_m86lv"]
 [ext_resource type="AudioStream" uid="uid://bkxeq3sah276c" path="res://Sound/F5.wav" id="5_pcw5h"]
@@ -612,16 +612,18 @@ button7 = NodePath("Button7")
 button8 = NodePath("Button8")
 
 [node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -367.0
-offset_top = -317.0
-offset_right = 384.0
-offset_bottom = 228.0
+offset_left = -189.0
+offset_top = -90.0
+offset_right = 9611.0
+offset_bottom = 6520.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_wag8e")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_p131p")
 stretch_mode = 1
 
 [node name="TileMap" type="TileMap" parent="."]

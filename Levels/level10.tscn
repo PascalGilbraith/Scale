@@ -1,19 +1,19 @@
 [gd_scene load_steps=21 format=3 uid="uid://duys6t1dooqmk"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_cr0yn"]
-[ext_resource type="Texture2D" uid="uid://bworxg0gr31yq" path="res://Images/Gray.png" id="2_hi84s"]
 [ext_resource type="PackedScene" uid="uid://bo2exhk2njt7r" path="res://Levels/level11.tscn" id="2_roguq"]
+[ext_resource type="Texture2D" uid="uid://upu0q38gd0bf" path="res://Images/background.png" id="3_duele"]
 [ext_resource type="Texture2D" uid="uid://bycy28cs5nhhf" path="res://Images/Terrain (16x16).png" id="3_xxkvy"]
 [ext_resource type="PackedScene" uid="uid://phtslvx3t3la" path="res://button.tscn" id="4_onjiv"]
 [ext_resource type="AudioStream" uid="uid://bkxeq3sah276c" path="res://Sound/F5.wav" id="5_sqieg"]
+[ext_resource type="AudioStream" uid="uid://cdvhnyk855s15" path="res://Sound/D5#.wav" id="6_vt4cl"]
 [ext_resource type="AudioStream" uid="uid://cu3q1vvliluvk" path="res://Sound/G5.wav" id="6_vxfrv"]
-[ext_resource type="AudioStream" uid="uid://d36j8l0qofpau" path="res://Sound/A5.wav" id="7_mfutn"]
 [ext_resource type="AudioStream" uid="uid://cssxxj2n1ghp5" path="res://Sound/A5#.wav" id="8_6sd60"]
 [ext_resource type="AudioStream" uid="uid://bdls3h4ngt6fn" path="res://Sound/C6.wav" id="9_65fme"]
+[ext_resource type="AudioStream" uid="uid://c1004gb6s6wud" path="res://Sound/G5#.wav" id="9_d6dd5"]
 [ext_resource type="AudioStream" uid="uid://bgu7el31o12f" path="res://Sound/D6.wav" id="10_lx861"]
-[ext_resource type="AudioStream" uid="uid://by1txs253x5gb" path="res://Sound/E6.wav" id="11_qp6s1"]
-[ext_resource type="AudioStream" uid="uid://cybu18kaco2h5" path="res://Sound/F6.wav" id="12_jtxct"]
 [ext_resource type="PackedScene" uid="uid://d1x34jlvqptdi" path="res://player.tscn" id="13_faq41"]
+[ext_resource type="AudioStream" uid="uid://csrlodijtcjow" path="res://Sound/D#6.wav" id="13_nsvd7"]
 [ext_resource type="AudioStream" uid="uid://dr5cgufybq37c" path="res://Sound/Fail.wav" id="14_tb4lg"]
 [ext_resource type="PackedScene" uid="uid://dq0u68rybgoll" path="res://game_menu.tscn" id="15_5q15n"]
 [ext_resource type="PackedScene" uid="uid://c56jtijlpjnui" path="res://spike.tscn" id="16_nwk3a"]
@@ -614,16 +614,18 @@ button7 = NodePath("Button7")
 button8 = NodePath("Button8")
 
 [node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -367.0
-offset_top = -317.0
-offset_right = 384.0
-offset_bottom = 228.0
+offset_left = -189.0
+offset_top = -90.0
+offset_right = 9611.0
+offset_bottom = 6520.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_hi84s")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_duele")
 stretch_mode = 1
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -634,35 +636,35 @@ layer_0/tile_data = PackedInt32Array(1703963, 65536, 4, 1703962, 65536, 4, 17039
 
 [node name="Button1" parent="." instance=ExtResource("4_onjiv")]
 position = Vector2(181, 408)
-Sound = ExtResource("5_sqieg")
+Sound = ExtResource("6_vt4cl")
 
 [node name="Button2" parent="." instance=ExtResource("4_onjiv")]
 position = Vector2(261, 200)
-Sound = ExtResource("6_vxfrv")
+Sound = ExtResource("5_sqieg")
 
 [node name="Button3" parent="." instance=ExtResource("4_onjiv")]
 position = Vector2(400, 200)
-Sound = ExtResource("7_mfutn")
+Sound = ExtResource("6_vxfrv")
 
 [node name="Button4" parent="." instance=ExtResource("4_onjiv")]
 position = Vector2(241, 376)
-Sound = ExtResource("8_6sd60")
+Sound = ExtResource("9_d6dd5")
 
 [node name="Button5" parent="." instance=ExtResource("4_onjiv")]
 position = Vector2(376, 408)
-Sound = ExtResource("9_65fme")
+Sound = ExtResource("8_6sd60")
 
 [node name="Button6" parent="." instance=ExtResource("4_onjiv")]
 position = Vector2(504, 312)
-Sound = ExtResource("10_lx861")
+Sound = ExtResource("9_65fme")
 
 [node name="Button7" parent="." instance=ExtResource("4_onjiv")]
 position = Vector2(632, 408)
-Sound = ExtResource("11_qp6s1")
+Sound = ExtResource("10_lx861")
 
 [node name="Button8" parent="." instance=ExtResource("4_onjiv")]
 position = Vector2(680, 184)
-Sound = ExtResource("12_jtxct")
+Sound = ExtResource("13_nsvd7")
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(48, 369)

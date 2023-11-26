@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://main.gd" id="1_gbldd"]
 [ext_resource type="PackedScene" uid="uid://c82oghue3jauc" path="res://Levels/level4.tscn" id="2_hxdib"]
-[ext_resource type="Texture2D" uid="uid://bworxg0gr31yq" path="res://Images/Gray.png" id="2_rtyqv"]
 [ext_resource type="Texture2D" uid="uid://bycy28cs5nhhf" path="res://Images/Terrain (16x16).png" id="3_2jv53"]
+[ext_resource type="Texture2D" uid="uid://upu0q38gd0bf" path="res://Images/background.png" id="3_u13qp"]
 [ext_resource type="PackedScene" uid="uid://phtslvx3t3la" path="res://button.tscn" id="4_iossx"]
 [ext_resource type="AudioStream" uid="uid://b6n8lo4mq60nn" path="res://Sound/E5.wav" id="6_lwjxl"]
 [ext_resource type="AudioStream" uid="uid://cu01e1sa3gx28" path="res://Sound/F5#.wav" id="7_acuym"]
@@ -620,16 +620,18 @@ button7 = NodePath("Button7")
 button8 = NodePath("Button8")
 
 [node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -367.0
-offset_top = -317.0
-offset_right = 384.0
-offset_bottom = 228.0
+offset_left = -189.0
+offset_top = -90.0
+offset_right = 9611.0
+offset_bottom = 6520.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_rtyqv")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_u13qp")
 stretch_mode = 1
 
 [node name="TileMap" type="TileMap" parent="."]

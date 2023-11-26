@@ -1,10 +1,10 @@
 [gd_scene load_steps=21 format=3 uid="uid://7c7mjdtpqpu"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_brfhg"]
-[ext_resource type="Texture2D" uid="uid://bworxg0gr31yq" path="res://Images/Gray.png" id="1_fxiub"]
 [ext_resource type="PackedScene" uid="uid://d1x34jlvqptdi" path="res://player.tscn" id="1_r7sq7"]
 [ext_resource type="PackedScene" uid="uid://bpilp1pcv4apf" path="res://Levels/level2.tscn" id="2_o0ybx"]
 [ext_resource type="Texture2D" uid="uid://bycy28cs5nhhf" path="res://Images/Terrain (16x16).png" id="2_w8yc6"]
+[ext_resource type="Texture2D" uid="uid://upu0q38gd0bf" path="res://Images/background.png" id="3_12j5a"]
 [ext_resource type="PackedScene" uid="uid://phtslvx3t3la" path="res://button.tscn" id="5_2r28v"]
 [ext_resource type="AudioStream" uid="uid://dr5cgufybq37c" path="res://Sound/Fail.wav" id="7_de70w"]
 [ext_resource type="AudioStream" uid="uid://tdsdvj6glq5v" path="res://Sound/C5.wav" id="8_pvgkb"]
@@ -620,16 +620,18 @@ button7 = NodePath("Button7")
 button8 = NodePath("Button8")
 
 [node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -367.0
-offset_top = -317.0
-offset_right = 1032.0
-offset_bottom = 1020.0
+offset_left = -189.0
+offset_top = -90.0
+offset_right = 9611.0
+offset_bottom = 6520.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_fxiub")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_12j5a")
 stretch_mode = 1
 
 [node name="TileMap" type="TileMap" parent="."]

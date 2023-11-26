@@ -1,10 +1,162 @@
-[gd_scene load_steps=18 format=3 uid="uid://4kf5da6q0njq"]
+[gd_scene load_steps=22 format=3 uid="uid://4kf5da6q0njq"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_fhscl"]
 [ext_resource type="PackedScene" uid="uid://7c7mjdtpqpu" path="res://Levels/main.tscn" id="2_6wuiv"]
 [ext_resource type="Texture2D" uid="uid://cq2fx5h0gpbgm" path="res://Images/ButtonBlack.png" id="3_0rqxl"]
 [ext_resource type="Texture2D" uid="uid://b4hfpuuj7eijb" path="res://Images/Idle (32x32).png" id="3_m44jh"]
+[ext_resource type="Texture2D" uid="uid://upu0q38gd0bf" path="res://Images/background.png" id="3_wnm88"]
 [ext_resource type="Texture2D" uid="uid://cdpw2ggdcks4r" path="res://Images/Button.png" id="4_a11wi"]
+[ext_resource type="Texture2D" uid="uid://bycy28cs5nhhf" path="res://Images/Terrain (16x16).png" id="6_w7s3j"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gwy71"]
+texture = ExtResource("6_w7s3j")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+19:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+19:2/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+19:4/0 = 0
+20:4/0 = 0
+21:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+17:5/0 = 0
+18:5/0 = 0
+19:5/0 = 0
+20:5/0 = 0
+21:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+17:6/0 = 0
+18:6/0 = 0
+19:6/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+17:8/0 = 0
+18:8/0 = 0
+19:8/0 = 0
+20:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+17:9/0 = 0
+18:9/0 = 0
+19:9/0 = 0
+20:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+18:10/0 = 0
+19:10/0 = 0
+20:10/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_3m3qr"]
+sources/0 = SubResource("TileSetAtlasSource_gwy71")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qcfp6"]
 atlas = ExtResource("3_m44jh")
@@ -95,8 +247,23 @@ animations = [{
 script = ExtResource("1_fhscl")
 first_scene = ExtResource("2_6wuiv")
 
+[node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -176.0
+offset_top = -183.0
+offset_right = 1264.0
+offset_bottom = 1223.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_wnm88")
+stretch_mode = 1
+
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
-position = Vector2(-272, 31)
+position = Vector2(-285, -6)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D6" type="Sprite2D" parent="CanvasGroup"]
@@ -147,6 +314,12 @@ position = Vector2(990, 633)
 scale = Vector2(10, 10)
 texture = ExtResource("4_a11wi")
 
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(3, 3)
+tile_set = SubResource("TileSet_3m3qr")
+format = 2
+layer_0/tile_data = PackedInt32Array(65536, 131072, 5, 131072, 131072, 5, 196608, 131072, 5, 262144, 131072, 5, 327680, 131072, 5, 393216, 131072, 5, 458752, 131072, 5, 524288, 131072, 5, 589824, 131072, 5, 655360, 131072, 5, 720896, 131072, 5, 786432, 131072, 5, 851968, 131072, 5, 917504, 196608, 5, 917505, 65536, 4, 917506, 65536, 4, 917507, 65536, 4, 917508, 65536, 4, 917509, 65536, 4, 917510, 65536, 4, 917511, 65536, 4, 917512, 65536, 4, 917513, 65536, 4, 917514, 65536, 4, 917515, 65536, 4, 917516, 65536, 4, 917517, 65536, 4, 917518, 262144, 5, 851982, 0, 5, 786446, 0, 5, 720910, 0, 5, 655374, 0, 5, 589838, 0, 5, 524302, 0, 5, 458766, 0, 5, 393230, 0, 5, 327694, 0, 5, 262158, 0, 5, 196622, 0, 5, 131086, 0, 5, 65550, 0, 5, 14, 262144, 4, 13, 65536, 6, 12, 65536, 6, 11, 65536, 6, 10, 65536, 6, 9, 65536, 6, 8, 65536, 6, 7, 65536, 6, 6, 65536, 6, 5, 65536, 6, 4, 65536, 6, 3, 65536, 6, 2, 65536, 6, 1, 65536, 6, 0, 196608, 4)
+
 [node name="Button_Play" type="Button" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
@@ -177,7 +350,7 @@ text = "Quit"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(161, 559)
+position = Vector2(160, 516)
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_55cct")
 autoplay = "default"
