@@ -17,6 +17,8 @@ var is_single_use: bool = false
 
 var is_highlighted: bool = false
 
+var is_black: bool = false
+
 func set_is_highlighted(value: bool):
 	is_highlighted = value
 	Highlight.enabled = is_highlighted
@@ -24,16 +26,25 @@ func set_is_highlighted(value: bool):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	AudioPlayer.stream = Sound
+	print_debug(Sound.resource_path)
+	if Sound.resource_path.contains("#"):
+		is_black = true
+		Sprite.play("idle_black")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if Sprite.animation == "release" and Sprite.frame_progress == 1:
 		Sprite.play("idle")
+	elif Sprite.animation == "release_black" and Sprite.frame_progress == 1:
+		Sprite.play("idle_black")
 
 func _on_body_entered(body):
 	if body is player:
 		AudioPlayer.play()
-		Sprite.play("press")
+		if is_black:
+			Sprite.play("press_black")
+		else:
+			Sprite.play("press")
 		if not is_single_use || not is_pushed:
 			emit_signal("button_pushed")
 
@@ -46,4 +57,7 @@ func play_sound():
 
 func _on_body_exited(body):
 	if body is player:
-		Sprite.play("release")
+		if is_black:
+			Sprite.play("release_black")
+		else:
+			Sprite.play("release")

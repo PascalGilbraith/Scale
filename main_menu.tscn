@@ -1,8 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://4kf5da6q0njq"]
+[gd_scene load_steps=18 format=3 uid="uid://4kf5da6q0njq"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_fhscl"]
 [ext_resource type="PackedScene" uid="uid://7c7mjdtpqpu" path="res://Levels/main.tscn" id="2_6wuiv"]
+[ext_resource type="Texture2D" uid="uid://cq2fx5h0gpbgm" path="res://Images/ButtonBlack.png" id="3_0rqxl"]
 [ext_resource type="Texture2D" uid="uid://b4hfpuuj7eijb" path="res://Images/Idle (32x32).png" id="3_m44jh"]
+[ext_resource type="Texture2D" uid="uid://cdpw2ggdcks4r" path="res://Images/Button.png" id="4_a11wi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qcfp6"]
 atlas = ExtResource("3_m44jh")
@@ -92,6 +94,58 @@ animations = [{
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_fhscl")
 first_scene = ExtResource("2_6wuiv")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+position = Vector2(-272, 31)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D6" type="Sprite2D" parent="CanvasGroup"]
+texture_filter = 1
+position = Vector2(430, 612)
+scale = Vector2(10, 10)
+texture = ExtResource("3_0rqxl")
+
+[node name="Sprite2D7" type="Sprite2D" parent="CanvasGroup"]
+texture_filter = 1
+position = Vector2(590, 611)
+scale = Vector2(10, 10)
+texture = ExtResource("3_0rqxl")
+
+[node name="Sprite2D8" type="Sprite2D" parent="CanvasGroup"]
+texture_filter = 1
+position = Vector2(910, 610)
+scale = Vector2(10, 10)
+texture = ExtResource("3_0rqxl")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasGroup"]
+texture_filter = 1
+position = Vector2(350, 633)
+scale = Vector2(10, 10)
+texture = ExtResource("4_a11wi")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasGroup"]
+texture_filter = 1
+position = Vector2(510, 633)
+scale = Vector2(10, 10)
+texture = ExtResource("4_a11wi")
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasGroup"]
+texture_filter = 1
+position = Vector2(670, 633)
+scale = Vector2(10, 10)
+texture = ExtResource("4_a11wi")
+
+[node name="Sprite2D4" type="Sprite2D" parent="CanvasGroup"]
+texture_filter = 1
+position = Vector2(830, 633)
+scale = Vector2(10, 10)
+texture = ExtResource("4_a11wi")
+
+[node name="Sprite2D5" type="Sprite2D" parent="CanvasGroup"]
+texture_filter = 1
+position = Vector2(990, 633)
+scale = Vector2(10, 10)
+texture = ExtResource("4_a11wi")
 
 [node name="Button_Play" type="Button" parent="."]
 anchors_preset = 8
