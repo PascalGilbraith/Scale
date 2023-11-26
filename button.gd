@@ -26,7 +26,6 @@ func set_is_highlighted(value: bool):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	AudioPlayer.stream = Sound
-	print_debug(Sound.resource_path)
 	if Sound.resource_path.contains("#"):
 		is_black = true
 		Sprite.play("idle_black")
