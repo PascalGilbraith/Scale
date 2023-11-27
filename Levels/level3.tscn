@@ -645,7 +645,7 @@ position = Vector2(181, 408)
 Sound = ExtResource("6_lwjxl")
 
 [node name="Button2" parent="." instance=ExtResource("4_iossx")]
-position = Vector2(261, 200)
+position = Vector2(140, 248)
 Sound = ExtResource("7_acuym")
 
 [node name="Button3" parent="." instance=ExtResource("4_iossx")]
