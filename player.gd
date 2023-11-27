@@ -108,6 +108,7 @@ func _physics_process(delta):
 
 func spawn(spawn_position: Vector2):
 	position = spawn_position
+	velocity = Vector2(0,0)
 	sprite.play("appear")
 	timer_spawn.start()
 
