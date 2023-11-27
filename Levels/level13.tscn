@@ -5,15 +5,15 @@
 [ext_resource type="Texture2D" uid="uid://upu0q38gd0bf" path="res://Images/background.png" id="3_8pg5u"]
 [ext_resource type="Texture2D" uid="uid://bycy28cs5nhhf" path="res://Images/Terrain (16x16).png" id="3_uphbt"]
 [ext_resource type="PackedScene" uid="uid://phtslvx3t3la" path="res://button.tscn" id="4_kj38g"]
-[ext_resource type="AudioStream" uid="uid://bkxeq3sah276c" path="res://Sound/F5.wav" id="5_qi1kd"]
 [ext_resource type="AudioStream" uid="uid://cu3q1vvliluvk" path="res://Sound/G5.wav" id="6_ophe1"]
 [ext_resource type="AudioStream" uid="uid://d36j8l0qofpau" path="res://Sound/A5.wav" id="7_yo010"]
 [ext_resource type="AudioStream" uid="uid://cssxxj2n1ghp5" path="res://Sound/A5#.wav" id="8_3464g"]
 [ext_resource type="AudioStream" uid="uid://bdls3h4ngt6fn" path="res://Sound/C6.wav" id="9_n4x7r"]
 [ext_resource type="AudioStream" uid="uid://bgu7el31o12f" path="res://Sound/D6.wav" id="10_fvk7l"]
-[ext_resource type="AudioStream" uid="uid://by1txs253x5gb" path="res://Sound/E6.wav" id="11_4mrky"]
-[ext_resource type="AudioStream" uid="uid://cybu18kaco2h5" path="res://Sound/F6.wav" id="12_dkp56"]
+[ext_resource type="AudioStream" uid="uid://csrlodijtcjow" path="res://Sound/D#6.wav" id="11_nnj8i"]
+[ext_resource type="AudioStream" uid="uid://djp6h2vxf3xcq" path="res://Sound/F6#.wav" id="12_w8a76"]
 [ext_resource type="PackedScene" uid="uid://d1x34jlvqptdi" path="res://player.tscn" id="13_2ke20"]
+[ext_resource type="AudioStream" uid="uid://b6bc21erdhe4n" path="res://Sound/G6.wav" id="13_di1j3"]
 [ext_resource type="AudioStream" uid="uid://dr5cgufybq37c" path="res://Sound/Fail.wav" id="14_pgxub"]
 [ext_resource type="PackedScene" uid="uid://dq0u68rybgoll" path="res://game_menu.tscn" id="15_vtqm8"]
 [ext_resource type="PackedScene" uid="uid://c56jtijlpjnui" path="res://spike.tscn" id="16_28h73"]
@@ -636,35 +636,35 @@ layer_0/tile_data = PackedInt32Array(1703963, 65536, 4, 1703962, 65536, 4, 17039
 
 [node name="Button1" parent="." instance=ExtResource("4_kj38g")]
 position = Vector2(181, 408)
-Sound = ExtResource("5_qi1kd")
+Sound = ExtResource("6_ophe1")
 
 [node name="Button2" parent="." instance=ExtResource("4_kj38g")]
 position = Vector2(261, 200)
-Sound = ExtResource("6_ophe1")
+Sound = ExtResource("7_yo010")
 
 [node name="Button3" parent="." instance=ExtResource("4_kj38g")]
 position = Vector2(400, 200)
-Sound = ExtResource("7_yo010")
+Sound = ExtResource("8_3464g")
 
 [node name="Button4" parent="." instance=ExtResource("4_kj38g")]
 position = Vector2(241, 376)
-Sound = ExtResource("8_3464g")
+Sound = ExtResource("9_n4x7r")
 
 [node name="Button5" parent="." instance=ExtResource("4_kj38g")]
 position = Vector2(376, 408)
-Sound = ExtResource("9_n4x7r")
+Sound = ExtResource("10_fvk7l")
 
 [node name="Button6" parent="." instance=ExtResource("4_kj38g")]
 position = Vector2(504, 312)
-Sound = ExtResource("10_fvk7l")
+Sound = ExtResource("11_nnj8i")
 
 [node name="Button7" parent="." instance=ExtResource("4_kj38g")]
 position = Vector2(632, 408)
-Sound = ExtResource("11_4mrky")
+Sound = ExtResource("12_w8a76")
 
 [node name="Button8" parent="." instance=ExtResource("4_kj38g")]
 position = Vector2(680, 184)
-Sound = ExtResource("12_dkp56")
+Sound = ExtResource("13_di1j3")
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(48, 369)
