@@ -49,6 +49,7 @@ func _physics_process(delta):
 			timer_wall_jump.start()
 			var wall_direction = get_wall_normal()
 			velocity = wall_direction * (SPEED / 2)
+			sprite.play("wall_jump")
 		
 		velocity.y = JUMP_VELOCITY
 		jump_count += 1
@@ -58,8 +59,9 @@ func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 
 	if is_wall_jumping:
-		sprite.flip_h = direction < 0;
-		sprite.play("wall_jump")
+		if velocity.y > 0:
+			sprite.flip_h = direction < 0;
+			sprite.play("fall")
 	elif direction:
 		sprite.flip_h = direction < 0;
 		if is_on_floor():
