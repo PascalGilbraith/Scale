@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bxqc6bb0uruab"]
+[gd_scene load_steps=22 format=3 uid="uid://bxqc6bb0uruab"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_gbldd"]
 [ext_resource type="PackedScene" uid="uid://c82oghue3jauc" path="res://Levels/level4.tscn" id="2_hxdib"]
@@ -595,6 +595,13 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_otyrq")
 sources/0 = SubResource("TileSetAtlasSource_7sbvo")
 
+[sub_resource type="LabelSettings" id="LabelSettings_kv7pc"]
+font_color = Color(1, 0.905882, 0.384314, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_o3cqe"]
 font_color = Color(1, 0.905882, 0.384314, 1)
 outline_size = 4
@@ -687,6 +694,16 @@ zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="GameMenu" parent="Viewport" instance=ExtResource("16_15toj")]
+
+[node name="HUD" type="CanvasLayer" parent="Viewport"]
+
+[node name="label_level" type="Label" parent="Viewport/HUD"]
+texture_filter = 1
+offset_left = 589.0
+offset_right = 720.0
+offset_bottom = 26.0
+text = "Level 3 (E Major)"
+label_settings = SubResource("LabelSettings_kv7pc")
 
 [node name="Label" type="Label" parent="."]
 texture_filter = 1

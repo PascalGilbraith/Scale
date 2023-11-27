@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://badrt4sjrmbph"]
+[gd_scene load_steps=22 format=3 uid="uid://badrt4sjrmbph"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_6fukf"]
 [ext_resource type="PackedScene" uid="uid://duys6t1dooqmk" path="res://Levels/level10.tscn" id="2_seq6g"]
@@ -596,6 +596,13 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_otyrq")
 sources/0 = SubResource("TileSetAtlasSource_7sbvo")
 
+[sub_resource type="LabelSettings" id="LabelSettings_7il25"]
+font_color = Color(1, 0.905882, 0.384314, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+
 [node name="Main" type="Node" node_paths=PackedStringArray("player", "viewport", "game_menu", "fail_audio_player", "start_position", "button1", "button2", "button3", "button4", "button5", "button6", "button7", "button8")]
 script = ExtResource("1_6fukf")
 player = NodePath("Player")
@@ -681,6 +688,16 @@ zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="GameMenu" parent="Viewport" instance=ExtResource("15_mnn5q")]
+
+[node name="HUD" type="CanvasLayer" parent="Viewport"]
+
+[node name="label_level" type="Label" parent="Viewport/HUD"]
+texture_filter = 1
+offset_left = 589.0
+offset_right = 720.0
+offset_bottom = 26.0
+text = "Level 9 (C Minor)"
+label_settings = SubResource("LabelSettings_7il25")
 
 [node name="Spike" parent="." instance=ExtResource("16_peshs")]
 position = Vector2(133, 408)
