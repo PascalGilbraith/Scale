@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://c0l2wkfbv1uh0"]
+[gd_scene load_steps=22 format=3 uid="uid://c0l2wkfbv1uh0"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ta55g"]
+[ext_resource type="PackedScene" uid="uid://vds5ptw5qon7" path="res://end_menu.tscn" id="2_ojgqb"]
 [ext_resource type="Texture2D" uid="uid://upu0q38gd0bf" path="res://Images/background.png" id="2_p131p"]
 [ext_resource type="Texture2D" uid="uid://bycy28cs5nhhf" path="res://Images/Terrain (16x16).png" id="3_11cws"]
 [ext_resource type="PackedScene" uid="uid://phtslvx3t3la" path="res://button.tscn" id="4_m86lv"]
@@ -608,6 +609,7 @@ player = NodePath("Player")
 viewport = NodePath("Viewport")
 game_menu = NodePath("Viewport/GameMenu")
 fail_audio_player = NodePath("FailAudioPlayer")
+next_level = ExtResource("2_ojgqb")
 start_position = NodePath("StartPosition")
 button1 = NodePath("Button1")
 button2 = NodePath("Button2")

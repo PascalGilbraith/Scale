@@ -1,0 +1,369 @@
+[gd_scene load_steps=22 format=3 uid="uid://vds5ptw5qon7"]
+
+[ext_resource type="Script" path="res://end_menu.gd" id="1_j26u6"]
+[ext_resource type="Texture2D" uid="uid://upu0q38gd0bf" path="res://Images/background.png" id="1_xpwg1"]
+[ext_resource type="Texture2D" uid="uid://cq2fx5h0gpbgm" path="res://Images/ButtonBlack.png" id="2_s57dv"]
+[ext_resource type="Texture2D" uid="uid://cdpw2ggdcks4r" path="res://Images/Button.png" id="3_pf2rc"]
+[ext_resource type="Texture2D" uid="uid://bycy28cs5nhhf" path="res://Images/Terrain (16x16).png" id="4_77jxp"]
+[ext_resource type="Texture2D" uid="uid://b4hfpuuj7eijb" path="res://Images/Idle (32x32).png" id="5_6wkoq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gwy71"]
+texture = ExtResource("4_77jxp")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+19:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+19:2/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+19:4/0 = 0
+20:4/0 = 0
+21:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+17:5/0 = 0
+18:5/0 = 0
+19:5/0 = 0
+20:5/0 = 0
+21:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+17:6/0 = 0
+18:6/0 = 0
+19:6/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+17:8/0 = 0
+18:8/0 = 0
+19:8/0 = 0
+20:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+17:9/0 = 0
+18:9/0 = 0
+19:9/0 = 0
+20:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+18:10/0 = 0
+19:10/0 = 0
+20:10/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_08dnn"]
+sources/0 = SubResource("TileSetAtlasSource_gwy71")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcfp6"]
+atlas = ExtResource("5_6wkoq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8ip8"]
+atlas = ExtResource("5_6wkoq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjdwn"]
+atlas = ExtResource("5_6wkoq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qsh2"]
+atlas = ExtResource("5_6wkoq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r28gk"]
+atlas = ExtResource("5_6wkoq")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gauq"]
+atlas = ExtResource("5_6wkoq")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62mlx"]
+atlas = ExtResource("5_6wkoq")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ggi7"]
+atlas = ExtResource("5_6wkoq")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nf0lx"]
+atlas = ExtResource("5_6wkoq")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vv862"]
+atlas = ExtResource("5_6wkoq")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w582f"]
+atlas = ExtResource("5_6wkoq")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gjo8b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcfp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8ip8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjdwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qsh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r28gk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gauq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62mlx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ggi7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nf0lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vv862")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w582f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nt767"]
+font_color = Color(1, 0.905882, 0.384314, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="end_menu" type="CanvasLayer"]
+script = ExtResource("1_j26u6")
+
+[node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -176.0
+offset_top = -183.0
+offset_right = 1264.0
+offset_bottom = 1223.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_xpwg1")
+stretch_mode = 1
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+position = Vector2(-285, -6)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D6" type="Sprite2D" parent="CanvasGroup"]
+texture_filter = 1
+position = Vector2(430, 612)
+scale = Vector2(10, 10)
+texture = ExtResource("2_s57dv")
+
+[node name="Sprite2D7" type="Sprite2D" parent="CanvasGroup"]
+texture_filter = 1
+position = Vector2(590, 611)
+scale = Vector2(10, 10)
+texture = ExtResource("2_s57dv")
+
+[node name="Sprite2D8" type="Sprite2D" parent="CanvasGroup"]
+texture_filter = 1
+position = Vector2(910, 610)
+scale = Vector2(10, 10)
+texture = ExtResource("2_s57dv")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasGroup"]
+texture_filter = 1
+position = Vector2(350, 633)
+scale = Vector2(10, 10)
+texture = ExtResource("3_pf2rc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasGroup"]
+texture_filter = 1
+position = Vector2(510, 633)
+scale = Vector2(10, 10)
+texture = ExtResource("3_pf2rc")
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasGroup"]
+texture_filter = 1
+position = Vector2(670, 633)
+scale = Vector2(10, 10)
+texture = ExtResource("3_pf2rc")
+
+[node name="Sprite2D4" type="Sprite2D" parent="CanvasGroup"]
+texture_filter = 1
+position = Vector2(830, 633)
+scale = Vector2(10, 10)
+texture = ExtResource("3_pf2rc")
+
+[node name="Sprite2D5" type="Sprite2D" parent="CanvasGroup"]
+texture_filter = 1
+position = Vector2(990, 633)
+scale = Vector2(10, 10)
+texture = ExtResource("3_pf2rc")
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+tile_set = SubResource("TileSet_08dnn")
+format = 2
+layer_0/tile_data = PackedInt32Array(65536, 131072, 5, 131072, 131072, 5, 196608, 131072, 5, 262144, 131072, 5, 327680, 131072, 5, 393216, 131072, 5, 458752, 131072, 5, 524288, 131072, 5, 589824, 131072, 5, 655360, 131072, 5, 720896, 131072, 5, 786432, 131072, 5, 851968, 131072, 5, 917504, 196608, 5, 917505, 65536, 4, 917506, 65536, 4, 917507, 65536, 4, 917508, 65536, 4, 917509, 65536, 4, 917510, 65536, 4, 917511, 65536, 4, 917512, 65536, 4, 917513, 65536, 4, 917514, 65536, 4, 917515, 65536, 4, 917516, 65536, 4, 917517, 65536, 4, 917518, 262144, 5, 851982, 0, 5, 786446, 0, 5, 720910, 0, 5, 655374, 0, 5, 589838, 0, 5, 524302, 0, 5, 458766, 0, 5, 393230, 0, 5, 327694, 0, 5, 262158, 0, 5, 196622, 0, 5, 131086, 0, 5, 65550, 0, 5, 14, 262144, 4, 13, 65536, 6, 12, 65536, 6, 11, 65536, 6, 10, 65536, 6, 9, 65536, 6, 8, 65536, 6, 7, 65536, 6, 6, 65536, 6, 5, 65536, 6, 4, 65536, 6, 3, 65536, 6, 2, 65536, 6, 1, 65536, 6, 0, 196608, 4)
+
+[node name="Button_Menu" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -15.5
+offset_right = 20.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main Menu"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(160, 516)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_gjo8b")
+autoplay = "default"
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -88.5
+offset_top = 84.0
+offset_right = 88.5
+offset_bottom = 110.0
+grow_horizontal = 2
+text = "YOU WIN!!!
+
+Thank you for playing the first 16 levels of my game
+
+This was made for the Game Off 2023 game jam
+as motivation to learn Godot
+"
+label_settings = SubResource("LabelSettings_nt767")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Button_Menu" to="." method="_on_button_menu_pressed"]
