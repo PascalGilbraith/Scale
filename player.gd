@@ -84,7 +84,7 @@ func _physics_process(delta):
 					if is_on_wall():
 						sprite.play("wall_jump")
 					else:
-						sprite.play("double_jump")
+						sprite.play("jump") # should be double_jump but it's not done
 	else:
 		if is_on_wall_only() and Input.is_action_just_pressed("jump"):
 			var wall_direction = get_wall_normal()
@@ -104,7 +104,7 @@ func _physics_process(delta):
 						if is_on_wall():
 							sprite.play("wall_jump")
 						else:
-							sprite.play("double_jump")
+							sprite.play("jump") # should be double_jump but it's not done
 
 	move_and_slide()
 
