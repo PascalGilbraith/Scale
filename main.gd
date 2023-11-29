@@ -111,6 +111,7 @@ func _on_player_player_despawned():
 func reset():
 	button_index = 1
 	get_tree().call_group("buttons", "reset")
+	get_tree().call_group("animators", "seek", 0)
 	button1.set_is_highlighted(true)
 	player.spawn(start_position.position)
 

@@ -605,6 +605,21 @@ outline_color = Color(0, 0, 0, 1)
 shadow_size = 0
 shadow_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_fjotq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64, 323)]
+}
+
 [sub_resource type="Animation" id="Animation_uy71m"]
 resource_name = "new_animation"
 length = 2.0
@@ -622,7 +637,13 @@ tracks/0/keys = {
 "values": [Vector2(64, 400), Vector2(64, 323), Vector2(64, 400)]
 }
 
-[sub_resource type="Animation" id="Animation_fjotq"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m8a7c"]
+_data = {
+"RESET": SubResource("Animation_fjotq"),
+"new_animation": SubResource("Animation_uy71m")
+}
+
+[sub_resource type="Animation" id="Animation_j0c2l"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -634,13 +655,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(64, 323)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_m8a7c"]
-_data = {
-"RESET": SubResource("Animation_fjotq"),
-"new_animation": SubResource("Animation_uy71m")
+"values": [Vector2(672, 400)]
 }
 
 [sub_resource type="Animation" id="Animation_fw8g5"]
@@ -660,7 +675,13 @@ tracks/0/keys = {
 "values": [Vector2(672, 192), Vector2(672, 400), Vector2(672, 192)]
 }
 
-[sub_resource type="Animation" id="Animation_j0c2l"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wfqjv"]
+_data = {
+"RESET": SubResource("Animation_j0c2l"),
+"new_animation": SubResource("Animation_fw8g5")
+}
+
+[sub_resource type="Animation" id="Animation_wffem"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -672,13 +693,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(672, 400)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wfqjv"]
-_data = {
-"RESET": SubResource("Animation_j0c2l"),
-"new_animation": SubResource("Animation_fw8g5")
+"values": [Vector2(468, 256)]
 }
 
 [sub_resource type="Animation" id="Animation_pncej"]
@@ -698,7 +713,13 @@ tracks/0/keys = {
 "values": [Vector2(144, 256), Vector2(432, 256), Vector2(144, 256)]
 }
 
-[sub_resource type="Animation" id="Animation_wffem"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l5iqr"]
+_data = {
+"RESET": SubResource("Animation_wffem"),
+"new_animation": SubResource("Animation_pncej")
+}
+
+[sub_resource type="Animation" id="Animation_uukcr"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -710,13 +731,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(468, 256)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_l5iqr"]
-_data = {
-"RESET": SubResource("Animation_wffem"),
-"new_animation": SubResource("Animation_pncej")
+"values": [Vector2(272, 384)]
 }
 
 [sub_resource type="Animation" id="Animation_6jfc4"]
@@ -734,21 +749,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(496, 384), Vector2(272, 384), Vector2(496, 384)]
-}
-
-[sub_resource type="Animation" id="Animation_uukcr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(272, 384)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ctsyn"]
@@ -829,10 +829,10 @@ position = Vector2(183, 408)
 Sound = ExtResource("9_evc00")
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(48, 369)
+position = Vector2(50, 367)
 
 [node name="Player" parent="." instance=ExtResource("13_t25uv")]
-position = Vector2(48, 367)
+position = Vector2(46, 392)
 
 [node name="FailAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_twuw6")
