@@ -116,7 +116,22 @@ func reset():
 	player.spawn(start_position.position)
 
 func win():
+	await get_tree().create_timer(0.4).timeout
 	player.despawn()
+	await get_tree().create_timer(0.1).timeout
+	button7.play_sound()
+	await get_tree().create_timer(0.1).timeout
+	button6.play_sound()
+	await get_tree().create_timer(0.1).timeout
+	button5.play_sound()
+	await get_tree().create_timer(0.1).timeout
+	button4.play_sound()
+	await get_tree().create_timer(0.1).timeout
+	button3.play_sound()
+	await get_tree().create_timer(0.1).timeout
+	button2.play_sound()
+	await get_tree().create_timer(0.1).timeout
+	button1.play_sound()
 
 func fail():
 	fail_audio_player.play()
