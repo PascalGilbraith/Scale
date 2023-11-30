@@ -116,9 +116,8 @@ func reset():
 	player.spawn(start_position.position)
 
 func win():
-	await get_tree().create_timer(0.4).timeout
 	player.despawn()
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.5).timeout
 	button7.play_sound()
 	await get_tree().create_timer(0.1).timeout
 	button6.play_sound()
