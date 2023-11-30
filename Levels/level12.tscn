@@ -604,6 +604,21 @@ outline_color = Color(0, 0, 0, 1)
 shadow_size = 0
 shadow_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_66lk4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64, 208)]
+}
+
 [sub_resource type="Animation" id="Animation_4k4un"]
 resource_name = "new_animation"
 length = 3.0
@@ -621,7 +636,13 @@ tracks/0/keys = {
 "values": [Vector2(64, 417), Vector2(64, 208), Vector2(64, 417)]
 }
 
-[sub_resource type="Animation" id="Animation_66lk4"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2icy1"]
+_data = {
+"RESET": SubResource("Animation_66lk4"),
+"new_animation": SubResource("Animation_4k4un")
+}
+
+[sub_resource type="Animation" id="Animation_yy6r1"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -633,13 +654,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(64, 208)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2icy1"]
-_data = {
-"RESET": SubResource("Animation_66lk4"),
-"new_animation": SubResource("Animation_4k4un")
+"values": [Vector2(128, 417)]
 }
 
 [sub_resource type="Animation" id="Animation_3untn"]
@@ -657,21 +672,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(128, 208), Vector2(128, 417), Vector2(128, 208)]
-}
-
-[sub_resource type="Animation" id="Animation_yy6r1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(128, 417)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y6aca"]
