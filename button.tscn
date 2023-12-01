@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://phtslvx3t3la"]
+[gd_scene load_steps=26 format=3 uid="uid://phtslvx3t3la"]
 
 [ext_resource type="Script" path="res://button.gd" id="1_a8pru"]
 [ext_resource type="Texture2D" uid="uid://cdpw2ggdcks4r" path="res://Images/Button.png" id="1_qkptc"]
@@ -160,22 +160,22 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xtqxw"]
 radius = 3.0
-height = 14.0
+height = 10.0
 
-[node name="Button" type="Area2D" node_paths=PackedStringArray("AudioPlayer", "Sprite", "Highlight") groups=["buttons"]]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_37o87"]
+radius = 4.0
+height = 12.0
+
+[node name="Button" type="Node2D" node_paths=PackedStringArray("AudioPlayer", "Sprite", "Highlight") groups=["buttons"]]
 script = ExtResource("1_a8pru")
 AudioPlayer = NodePath("AudioPlayer")
 Sprite = NodePath("AnimatedSprite2D")
 Highlight = NodePath("Light")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_01nem")
-animation = &"idle_black"
-autoplay = "idle"
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
 
 [node name="Light" type="PointLight2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, 1)
 enabled = false
 color = Color(1, 0, 0, 1)
 energy = 5.0
@@ -183,12 +183,26 @@ shadow_enabled = true
 texture = ExtResource("6_yimxm")
 texture_scale = 0.1
 
-[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_01nem")
+animation = &"idle_black"
+autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Press_Collider" type="Area2D" parent="."]
+position = Vector2(0, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Press_Collider"]
 position = Vector2(0, 6)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_xtqxw")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[node name="Release_Collider" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Release_Collider"]
+position = Vector2(0, 4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_37o87")
+
+[connection signal="body_entered" from="Press_Collider" to="." method="_on_press_collider_body_entered"]
+[connection signal="body_exited" from="Release_Collider" to="." method="_on_release_collider_body_exited"]

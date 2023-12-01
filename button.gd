@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 class_name button
 
 signal button_pushed
@@ -37,7 +37,7 @@ func _process(_delta):
 	elif Sprite.animation == "release_black" and Sprite.frame_progress == 1:
 		Sprite.play("idle_black")
 
-func _on_body_entered(body):
+func _on_press_collider_body_entered(body):
 	if body is player:
 		AudioPlayer.play()
 		if is_black:
@@ -54,7 +54,7 @@ func reset():
 func play_sound():
 	AudioPlayer.play()
 
-func _on_body_exited(body):
+func _on_release_collider_body_exited(body):
 	if body is player:
 		if is_black:
 			Sprite.play("release_black")
