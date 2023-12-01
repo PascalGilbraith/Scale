@@ -158,13 +158,11 @@ animations = [{
 "speed": 20.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xtqxw"]
-radius = 3.0
-height = 10.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8h1ms"]
+size = Vector2(6.99996, 12)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_37o87"]
-radius = 4.0
-height = 12.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d70l3"]
+size = Vector2(6.99998, 12)
 
 [node name="Button" type="Node2D" node_paths=PackedStringArray("AudioPlayer", "Sprite", "Highlight") groups=["buttons"]]
 script = ExtResource("1_a8pru")
@@ -193,16 +191,17 @@ autoplay = "idle"
 position = Vector2(0, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Press_Collider"]
-position = Vector2(0, 6)
+position = Vector2(3.57628e-07, 6.5)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_xtqxw")
+shape = SubResource("RectangleShape2D_8h1ms")
 
 [node name="Release_Collider" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Release_Collider"]
-position = Vector2(0, 4)
+position = Vector2(-7.30555e-06, 4.49999)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_37o87")
+scale = Vector2(1.05, 1.05)
+shape = SubResource("RectangleShape2D_d70l3")
 
 [connection signal="body_entered" from="Press_Collider" to="." method="_on_press_collider_body_entered"]
 [connection signal="body_exited" from="Release_Collider" to="." method="_on_release_collider_body_exited"]
