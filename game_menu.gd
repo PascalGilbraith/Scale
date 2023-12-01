@@ -7,6 +7,8 @@ func _ready():
 		quit_button.hide()
 
 func _on_button_play_pressed():
+	var timer = get_node("/root/Global")
+	timer.reset()
 	var scene_file = get_tree().current_scene.scene_file_path
 	if scene_file.ends_with("main.tscn"):
 		get_tree().reload_current_scene()
@@ -24,3 +26,5 @@ func _on_button_resume_pressed():
 	# Resume current game
 	hide()
 	get_tree().paused = false
+	var timer = get_node("/root/Global")
+	timer.start()

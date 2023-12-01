@@ -15,6 +15,7 @@ class_name main
 @export var button6: button
 @export var button7: button
 @export var button8: button
+@export var label_time: Label
 
 var button_index: int = 1
 
@@ -31,8 +32,12 @@ func _ready():
 func _process(_delta):
 	viewport.position = player.position
 	if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("pause"):
+		var timer = get_node("/root/Global")
+		timer.stop()
 		get_tree().paused = true
 		game_menu.show()
+	var timer = get_node("/root/Global")
+	label_time.text = "Time: %10.3f s" % timer.time_elapsed
 
 func _on_button_1_button_pushed():
 	if button_index == 1:
@@ -114,8 +119,12 @@ func reset():
 	get_tree().call_group("animators", "seek", 0)
 	button1.set_is_highlighted(true)
 	player.spawn(start_position.position)
+	var timer = get_node("/root/Global")
+	timer.start()
 
 func win():
+	var timer = get_node("/root/Global")
+	timer.stop()
 	player.despawn()
 	await get_tree().create_timer(0.5).timeout
 	button7.play_sound()
@@ -133,5 +142,7 @@ func win():
 	button1.play_sound()
 
 func fail():
+	var timer = get_node("/root/Global")
+	timer.stop()
 	fail_audio_player.play()
 	reset()

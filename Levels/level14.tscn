@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://87126okwionb"]
+[gd_scene load_steps=27 format=3 uid="uid://87126okwionb"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_x0yul"]
 [ext_resource type="PackedScene" uid="uid://upsa6ljo3lmf" path="res://Levels/level15.tscn" id="2_2kuvj"]
@@ -604,6 +604,28 @@ outline_color = Color(0, 0, 0, 1)
 shadow_size = 0
 shadow_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_1aps7"]
+font_color = Color(1, 0.905882, 0.384314, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_mr6he"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(80, 288)]
+}
+
 [sub_resource type="Animation" id="Animation_xtpvu"]
 resource_name = "new_animation"
 length = 4.0
@@ -621,28 +643,13 @@ tracks/0/keys = {
 "values": [Vector2(304, 288), Vector2(80, 288), Vector2(304, 288)]
 }
 
-[sub_resource type="Animation" id="Animation_mr6he"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(80, 288)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6b7d2"]
 _data = {
 "RESET": SubResource("Animation_mr6he"),
 "new_animation": SubResource("Animation_xtpvu")
 }
 
-[node name="Main" type="Node" node_paths=PackedStringArray("player", "viewport", "game_menu", "fail_audio_player", "start_position", "button1", "button2", "button3", "button4", "button5", "button6", "button7", "button8")]
+[node name="Main" type="Node" node_paths=PackedStringArray("player", "viewport", "game_menu", "fail_audio_player", "start_position", "button1", "button2", "button3", "button4", "button5", "button6", "button7", "button8", "label_time")]
 script = ExtResource("1_x0yul")
 player = NodePath("Player")
 viewport = NodePath("Viewport")
@@ -658,6 +665,7 @@ button5 = NodePath("Button5")
 button6 = NodePath("Button6")
 button7 = NodePath("Button7")
 button8 = NodePath("Button8")
+label_time = NodePath("Viewport/HUD/label_time")
 
 [node name="Background" type="TextureRect" parent="."]
 texture_filter = 1
@@ -739,6 +747,14 @@ offset_right = 720.0
 offset_bottom = 26.0
 text = "Level 14 (A Minor)"
 label_settings = SubResource("LabelSettings_gco7o")
+
+[node name="label_time" type="Label" parent="Viewport/HUD"]
+texture_filter = 1
+offset_left = 589.0
+offset_top = 23.0
+offset_right = 720.0
+offset_bottom = 49.0
+label_settings = SubResource("LabelSettings_1aps7")
 
 [node name="Spike" parent="." instance=ExtResource("16_nfog4")]
 position = Vector2(104, 408)

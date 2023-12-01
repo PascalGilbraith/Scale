@@ -9,6 +9,8 @@ func _ready():
 		quit_button.hide()
 
 func _on_button_play_pressed():
+	var timer = get_node("/root/Global")
+	timer.reset()
 	get_tree().change_scene_to_packed(first_scene)
 
 func _on_button_quit_pressed():
