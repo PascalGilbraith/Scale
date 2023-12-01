@@ -68,43 +68,31 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION)
 			sprite.play("run")
 		else:
-			if is_on_wall_only() and Input.is_action_just_pressed("jump"):
-				var wall_direction = get_wall_normal()
-				sprite.flip_h = wall_direction < 0;
-				velocity.x = wall_direction * (SPEED / 2)
-			else:
-				velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION)
-			
+			velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION)
+
 			if velocity.y > 0:
-				sprite.play("fall")
-			else:
-				if jump_count == 1:
-					sprite.play("jump")
+				if is_on_wall():
+					var wall_direction = get_wall_normal()
+					sprite.flip_h = wall_direction.x > 0;
+					sprite.play("wall_jump")
 				else:
-					if is_on_wall():
-						sprite.play("wall_jump")
-					else:
-						sprite.play("jump") # should be double_jump but it's not done
-	else:
-		if is_on_wall_only() and Input.is_action_just_pressed("jump"):
-			var wall_direction = get_wall_normal()
-			sprite.flip_h = wall_direction < 0;
-			velocity.x = wall_direction * (SPEED / 2)
-		else:
-			velocity.x = move_toward(velocity.x, 0, DECELERATION)
-			if is_on_floor():
-				sprite.play("idle")
-			else:
-				if velocity.y > 0:
 					sprite.play("fall")
+			else:
+				sprite.play("jump")
+	else:
+		velocity.x = move_toward(velocity.x, 0, DECELERATION)
+		if is_on_floor():
+			sprite.play("idle")
+		else:
+			if velocity.y > 0:
+				if is_on_wall():
+					var wall_direction = get_wall_normal()
+					sprite.flip_h = wall_direction.x > 0;
+					sprite.play("wall_jump")
 				else:
-					if jump_count == 1:
-						sprite.play("jump")
-					else:
-						if is_on_wall():
-							sprite.play("wall_jump")
-						else:
-							sprite.play("jump") # should be double_jump but it's not done
+					sprite.play("fall")
+			else:
+				sprite.play("jump")
 
 	move_and_slide()
 
