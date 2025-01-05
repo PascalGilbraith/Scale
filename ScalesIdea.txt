@@ -1,0 +1,58 @@
+Puzzle platformer where the player has to hit keys in order that play a scale
+When the player hits the last note the descending part of the scale plays as the viewport zooms in to the player with the UI for the next level
+If a key is played in the wrong order or the play hits a killing obstacle all notes play at once jarringly and the player is returned to the level start
+
+Diatonic scales
+
+C Intro, just run through the keys
+D Spikes, jump over spikes
+E Wall jumps
+F Spikes and wall jumps
+G Keys on walls
+A Spikes on walls
+B Infinite drops
+C6 Combination of all above
+
+Cm Moving platforms
+Dm Run through hammers with spikes
+Em Mix with wall jumps
+Fm Floating blocks with hammers
+Gm Stand on hammer top
+Am
+Bm
+C6m Combination of all above
+
+C#
+D#
+F#
+G#
+A#
+C6#
+
+C#m
+D#m
+F#m
+G#m
+A#m
+C6#m
+
+TODO: Level design (lvl 13-16), art updates (new block)
+
+
+CoPilot name suggestions
+
+I have created a platformer game where the player has to hit keys in order to play a musical scale, can you create 10 suggestions for names for this game
+
+Platformer
+That sounds like a fun and creative game. Here are 10 suggestions for names for your game:
+
+Scale Runner: A game where you run and jump on musical keys to play scales and melodies.
+Key Quest: A game where you explore different worlds and collect musical keys to unlock new levels and songs.
+Musical Platformer: A game where you use music as your weapon and tool to overcome obstacles and enemies.
+Sound Jump: A game where you bounce on musical keys to create sound effects and tunes.
+Melody Maker: A game where you compose your own music by hitting keys and combining different sounds and instruments.
+Key Master: A game where you challenge yourself and others to play musical scales and songs as fast and accurately as possible.
+Scale Adventure: A game where you embark on a musical journey and learn about different scales and modes.
+Key Smash: A game where you smash musical keys to create explosions and chaos.
+Scale Up: A game where you level up your musical skills and unlock new keys and genres.
+Key Note: A game where you discover the secrets of music and harmony by hitting keys and solving puzzles.
